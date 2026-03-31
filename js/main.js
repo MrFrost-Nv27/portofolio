@@ -159,8 +159,8 @@ const PROJECTS = [
     tag: ['React', 'TypeScript', 'HeroUI', 'Laravel', 'PostgreSQL', 'WebSocket'],
     url_demo: 'https://emildon.com/livechat',
     url_repo: 'https://github.com/MrFrost-Nv27/emildon-frontend',
-    hero: '',
-    images: [],
+    hero: 'assets/images/livechat/l1.png',
+    images: ['assets/images/livechat/l1.png','assets/images/livechat/l2.png','assets/images/livechat/l3.png','assets/images/livechat/l4.png','assets/images/livechat/l5.png','assets/images/livechat/l6.png'],
   },
   {
     title: 'Pertamina - Dashboard Departemen Kesehatan',
@@ -169,10 +169,10 @@ const PROJECTS = [
     description: 'Dashboard manajemen kesehatan untuk salah satu cabang Pertamina (RU IV). Platform ini membantu divisi kesehatan dalam mengelola, memantau, dan mendistribusikan task secara terpusat — mencakup penugasan tenaga medis, tracking progress, dan pelaporan operasional berbasis data.',
     description_en: 'Health management dashboard for a Pertamina branch (RU IV). The platform assists the health division in centrally managing, monitoring, and distributing tasks — covering medical staff assignment, progress tracking, and data-driven operational reporting.',
     tag: ['PHP Native', 'MySQL', 'Tailwind CSS', 'JavaScript'],
-    url_demo: '',
+    url_demo: 'https://healthruiv.shutenk-store.xyz/',
     url_repo: 'https://github.com/MrFrost-Nv27/healthruiv',
-    hero: '',
-    images: [],
+    hero: 'assets/images/healthruiv/h1.png',
+    images: ['assets/images/healthruiv/h1.png','assets/images/healthruiv/h2.png','assets/images/healthruiv/h3.png','assets/images/healthruiv/h4.png'],
   },
   {
     title: 'Falcom FTTH App',
@@ -181,10 +181,10 @@ const PROJECTS = [
     description: 'Platform desain jaringan FTTH (Fiber to the Home) interaktif yang memungkinkan pengguna menggambar infrastruktur jaringan langsung di atas peta dengan skala dunia nyata. Dilengkapi fitur estimasi harga material otomatis dan export resume proyek. Dibangun dengan SolidJS + Material UI sebagai frontend, MapLibre GL untuk rendering peta, dan CodeIgniter sebagai backend.',
     description_en: 'Interactive FTTH (Fiber to the Home) network design platform that lets users draw network infrastructure directly on a real-world-scale map. Features automatic material cost estimation and project summary export. Built with SolidJS and Material UI on the frontend, MapLibre GL for map rendering, and CodeIgniter as the backend.',
     tag: ['SolidJS', 'Material UI', 'MapLibre GL', 'CodeIgniter', 'JavaScript'],
-    url_demo: '',
+    url_demo: 'https://ftth.falcom-technology.com/',
     url_repo: 'https://github.com/MrFrost-Nv27/ftthapp',
-    hero: '',
-    images: [],
+    hero: 'assets/images/ftth/f1.png',
+    images: ['assets/images/ftth/f1.png','assets/images/ftth/f2.png','assets/images/ftth/f3.png','assets/images/ftth/f4.png','assets/images/ftth/f5.png','assets/images/ftth/f6.png','assets/images/ftth/f7.png'],
   },
   {
     title: 'Passion Japan App',
@@ -193,10 +193,10 @@ const PROJECTS = [
     description: 'Platform Learning Management System (LMS) untuk Lembaga Duta Kerja Passion Japan. Mengelola data siswa, data perusahaan mitra, keuangan, modul pembelajaran, dan ujian secara terpusat. Fitur unggulan: translasi CV Indonesia ke Jepang secara otomatis menggunakan Gemini API dengan queue worker. Dibangun dengan monorepo Laravel + React, HeroUI sebagai komponen UI.',
     description_en: 'Learning Management System (LMS) platform for Passion Japan, a Japanese work placement agency. Centralizes student data, partner company records, finance, learning modules, and assessments. Highlights include automated Indonesian-to-Japanese CV translation powered by the Gemini API with a queue worker. Built as a Laravel + React monorepo with HeroUI components.',
     tag: ['Laravel', 'React', 'HeroUI', 'Gemini API', 'MySQL'],
-    url_demo: '',
+    url_demo: 'https://passionjapan.co.id/',
     url_repo: 'https://gitlab.com/passionjapanid1/passionjapanid',
-    hero: '',
-    images: [],
+    hero: 'assets/images/passionjapan/pj1.png',
+    images: ['assets/images/passionjapan/pj1.png','assets/images/passionjapan/pj2.png'],
   },
   {
     title: 'Pemesanan Travel Mobil',
@@ -219,6 +219,42 @@ const PROJECTS = [
     tag: ['Flutter', 'Dart', 'Firebase'],
     url_demo: '',
     url_repo: 'https://github.com/MrFrost-Nv27/appsparepart',
+    hero: '',
+    images: [],
+  },
+  {
+    title: 'Forecast Prestasi Siswa',
+    title_en: 'Student Performance Forecast',
+    category: 'AI',
+    description: 'Aplikasi prediksi prestasi akademik siswa menggunakan algoritma Backpropagation Neural Network. Membantu institusi pendidikan mengidentifikasi siswa berisiko secara dini berdasarkan data historis. Dibangun dengan Python, Flask sebagai web framework, dan JavaScript untuk antarmuka interaktif.',
+    description_en: 'Student academic performance prediction app using a Backpropagation Neural Network algorithm. Helps educational institutions identify at-risk students early based on historical data. Built with Python, Flask as the web framework, and JavaScript for the interactive interface.',
+    tag: ['Python', 'Flask', 'Backpropagation', 'JavaScript'],
+    url_demo: '',
+    url_repo: 'https://github.com/MrFrost-Nv27/backprosiswa',
+    hero: '',
+    images: [],
+  },
+  {
+    title: 'Analisa Kredit Macet',
+    title_en: 'Non-Performing Loan Analysis',
+    category: 'AI',
+    description: 'Aplikasi analisis dan prediksi kredit macet menggunakan algoritma Logistic Regression. Membantu lembaga keuangan menilai risiko kredit calon nasabah secara otomatis berdasarkan data historis pinjaman. Dibangun dengan Python, Quart (async web framework), dan JavaScript.',
+    description_en: 'Non-performing loan analysis and prediction app using Logistic Regression. Helps financial institutions automatically assess credit risk for loan applicants based on historical lending data. Built with Python, Quart (async web framework), and JavaScript.',
+    tag: ['Python', 'Quart', 'Logistic Regression', 'JavaScript'],
+    url_demo: '',
+    url_repo: 'https://github.com/MrFrost-Nv27/logisticregkredit',
+    hero: '',
+    images: [],
+  },
+  {
+    title: 'Asosiasi Rekomendasi Produk',
+    title_en: 'Product Recommendation Association',
+    category: 'AI',
+    description: 'Aplikasi rekomendasi produk berbasis association rule mining menggunakan algoritma Apriori. Menganalisis pola pembelian untuk menghasilkan rekomendasi produk yang relevan dan meningkatkan cross-selling. Dibangun dengan Python, Flask sebagai web framework, dan JavaScript.',
+    description_en: 'Product recommendation app based on association rule mining using the Apriori algorithm. Analyzes purchase patterns to generate relevant product recommendations and boost cross-selling. Built with Python, Flask as the web framework, and JavaScript.',
+    tag: ['Python', 'Flask', 'Apriori', 'JavaScript'],
+    url_demo: '',
+    url_repo: 'https://github.com/MrFrost-Nv27/webapriori',
     hero: '',
     images: [],
   },
@@ -253,6 +289,12 @@ function renderProjects() {
       ? `<img src="${proj.hero}" alt="${title}" loading="lazy" class="proj-hero-img" />`
       : `<div class="proj-thumb" style="--c:${color}"><i class="fas ${style.icon}"></i></div>`;
     const techHtml = (proj.tag || []).map(t => `<span class="tech">${t}</span>`).join('');
+    const demoBtn = proj.url_demo
+      ? `<a href="${proj.url_demo}" class="oval-btn" title="Demo" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i></a>`
+      : '';
+    const repoBtn = proj.url_repo
+      ? `<a href="${proj.url_repo}" class="oval-btn" title="Repo" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>`
+      : '';
     const el = document.createElement('article');
     el.className       = 'proj-card reveal clickable';
     el.dataset.cat     = key;
@@ -266,8 +308,7 @@ function renderProjects() {
       <div class="proj-img">
         ${heroHtml}
         <div class="proj-overlay">
-          <a href="#" class="oval-btn" title="Demo"><i class="fas fa-external-link-alt"></i></a>
-          <a href="#" class="oval-btn" title="Repo"><i class="fab fa-github"></i></a>
+          ${demoBtn}${repoBtn}
         </div>
       </div>
       <div class="proj-body">
@@ -696,8 +737,8 @@ var _revealIO;
       return;
     }
     const text = currentLang === 'en'
-      ? `Halo Nova,\n\nSaya tertarik untuk berkolaborasi. Berikut detail saya:\n\n*📋 Informasi Pengirim*\n• Name     : ${name}\n\n*🔧 Type of Service*\n${service}\n\n*💬 Message*\n${msg}\n\n_Sent via contact form — novaadisaputra.dev_`
-      : `Halo Nova,\n\nSaya tertarik untuk berkolaborasi. Berikut detail saya:\n\n*📋 Informasi Pengirim*\n• Nama     : ${name}\n\n*🔧 Jenis Layanan*\n${service}\n\n*💬 Pesan*\n${msg}\n\n_Dikirim melalui formulir kontak — novaadisaputra.dev_`;
+      ? `Halo Nova,\n\nSaya tertarik untuk berkolaborasi. Berikut detail saya:\n\n*📋 Informasi Pengirim*\n• Name     : ${name}\n\n*🔧 Type of Service*\n${service}\n\n*💬 Message*\n${msg}\n\n_Sent via contact form — frostdev.my.id_`
+      : `Halo Nova,\n\nSaya tertarik untuk berkolaborasi. Berikut detail saya:\n\n*📋 Informasi Pengirim*\n• Nama     : ${name}\n\n*🔧 Jenis Layanan*\n${service}\n\n*💬 Pesan*\n${msg}\n\n_Dikirim melalui formulir kontak — frostdev.my.id_`;
     const waUrl = `https://wa.me/6282241198283?text=${encodeURIComponent(text)}`;
     window.open(waUrl, '_blank', 'noopener,noreferrer');
     form.reset();
