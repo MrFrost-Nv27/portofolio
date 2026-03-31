@@ -106,14 +106,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" id="mainCSS" href="css/style.css" />
-  <script>
-    (function(){
-      var el=document.getElementById('mainCSS');
-      fetch('css/style.css',{method:'HEAD',cache:'no-cache'})
-        .then(function(r){var lm=r.headers.get('last-modified');if(lm)el.href='css/style.css?v='+new Date(lm).getTime();})
-        .catch(function(){el.href='css/style.css?v='+Date.now();});
-    })();
-  </script>
+  <script>(function(){document.getElementById('mainCSS').href='css/style.css?v='+Date.now();})();</script>
   <!-- Tailwind CSS Play CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -486,21 +479,6 @@
     </div>
   </footer>
 
-  <script>
-    (function(){
-      fetch('js/main.js',{method:'HEAD',cache:'no-cache'})
-        .then(function(r){
-          var lm=r.headers.get('last-modified');
-          var s=document.createElement('script');
-          s.src='js/main.js?v='+(lm?new Date(lm).getTime():Date.now());
-          document.body.appendChild(s);
-        })
-        .catch(function(){
-          var s=document.createElement('script');
-          s.src='js/main.js?v='+Date.now();
-          document.body.appendChild(s);
-        });
-    })();
-  </script>
+  <script>(function(){var s=document.createElement('script');s.src='js/main.js?v='+Date.now();document.body.appendChild(s);})();</script>
 </body>
 </html>
