@@ -1,484 +1,477 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id" data-lang="id">
-<head>
-  <!-- Prevent flash of wrong theme/lang -->
-  <script>(function(){var initKey='theme-init-v2';if(!localStorage.getItem(initKey)){localStorage.setItem('theme','light');localStorage.setItem(initKey,'1');}var t=localStorage.getItem('theme')||'light';var l=localStorage.getItem('lang')||'id';if(t==='dark')document.documentElement.classList.add('dark');document.documentElement.setAttribute('data-lang',l);document.documentElement.setAttribute('lang',l==='en'?'en':'id');}());</script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <head>
+    <!-- Prevent flash of wrong theme/lang -->
+    <script>
+      (function () {
+        var initKey = "theme-init-v2";
+        if (!localStorage.getItem(initKey)) {
+          localStorage.setItem("theme", "light");
+          localStorage.setItem(initKey, "1");
+        }
+        var t = localStorage.getItem("theme") || "light";
+        var l = localStorage.getItem("lang") || "id";
+        if (t === "dark") document.documentElement.classList.add("dark");
+        document.documentElement.setAttribute("data-lang", l);
+        document.documentElement.setAttribute("lang", l === "en" ? "en" : "id");
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <!-- ── Resource Hints ────────────────────────────── -->
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-  <link rel="dns-prefetch" href="https://flagcdn.com" />
-  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
+    <!-- ── Resource Hints ────────────────────────────── -->
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="https://flagcdn.com" />
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
 
-  <!-- ── Primary Meta ─────────────────────────────────── -->
-  <title>Nova Adi Saputra | Full Stack Developer</title>
-  <meta name="title"       content="Nova Adi Saputra | Full Stack Developer" />
-  <meta name="description" content="Portfolio Nova Adi Saputra — Full Stack Developer & Freelancer sejak 2020. Spesialisasi Web, Mobile, Backend, dan AI. Tersedia untuk proyek freelance dan kolaborasi." />
-  <meta name="keywords"    content="Nova Adi Saputra, Full Stack Developer, Web Developer, Mobile Developer, Backend Developer, Freelancer, PHP, Laravel, React, Flutter, Python, AI, Jakarta, Indonesia" />
-  <meta name="author"      content="Nova Adi Saputra" />
-  <meta name="robots"      content="index, follow" />
-  <meta name="language"    content="Indonesian" />
-  <link rel="canonical"    href="https://frostdev.my.id/" />
+    <!-- ── Primary Meta ─────────────────────────────────── -->
+    <title>Nova Adi Saputra | Full Stack Developer</title>
+    <meta name="title" content="Nova Adi Saputra | Full Stack Developer" />
+    <meta name="description" content="Portfolio Nova Adi Saputra — Full Stack Developer & Freelancer sejak 2020. Spesialisasi Web, Mobile, Backend, dan AI. Tersedia untuk proyek freelance dan kolaborasi." />
+    <meta name="keywords" content="Nova Adi Saputra, Full Stack Developer, Web Developer, Mobile Developer, Backend Developer, Freelancer, PHP, Laravel, React, Flutter, Python, AI, Jakarta, Indonesia" />
+    <meta name="author" content="Nova Adi Saputra" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Indonesian" />
+    <link rel="canonical" href="https://frostdev.my.id/" />
 
-  <!-- ── Hreflang ─────────────────────────────────── -->
-  <link rel="alternate" hreflang="id"        href="https://frostdev.my.id/" />
-  <link rel="alternate" hreflang="en"        href="https://frostdev.my.id/" />
-  <link rel="alternate" hreflang="x-default" href="https://frostdev.my.id/" />
+    <!-- ── Hreflang ─────────────────────────────────── -->
+    <link rel="alternate" hreflang="id" href="https://frostdev.my.id/" />
+    <link rel="alternate" hreflang="en" href="https://frostdev.my.id/" />
+    <link rel="alternate" hreflang="x-default" href="https://frostdev.my.id/" />
 
-  <!-- ── Open Graph / Facebook ────────────────────────── -->
-  <meta property="og:type"        content="website" />
-  <meta property="og:url"         content="https://frostdev.my.id/" />
-  <meta property="og:title"       content="Nova Adi Saputra | Full Stack Developer" />
-  <meta property="og:description" content="Full Stack Developer & Freelancer sejak 2020. Membangun solusi digital yang skalabel, handal, dan berdampak — Web, Mobile, Backend, AI." />
-  <meta property="og:image"        content="https://frostdev.my.id/assets/images/og-cover.jpg" />
-  <meta property="og:image:width"  content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt"    content="Nova Adi Saputra — Full Stack Developer Portfolio" />
-  <meta property="og:locale"      content="id_ID" />
-  <meta property="og:locale:alternate" content="en_US" />
-  <meta property="og:site_name"   content="Nova Adi Saputra Portfolio" />
+    <!-- ── Open Graph / Facebook ────────────────────────── -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://frostdev.my.id/" />
+    <meta property="og:title" content="Nova Adi Saputra | Full Stack Developer" />
+    <meta property="og:description" content="Full Stack Developer & Freelancer sejak 2020. Membangun solusi digital yang skalabel, handal, dan berdampak — Web, Mobile, Backend, AI." />
+    <meta property="og:image" content="https://frostdev.my.id/assets/images/og-cover.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Nova Adi Saputra — Full Stack Developer Portfolio" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:site_name" content="Nova Adi Saputra Portfolio" />
 
-  <!-- ── Twitter Card ─────────────────────────────────── -->
-  <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:url"         content="https://frostdev.my.id/" />
-  <meta name="twitter:title"       content="Nova Adi Saputra | Full Stack Developer" />
-  <meta name="twitter:description" content="Full Stack Developer & Freelancer sejak 2020. Membangun solusi digital yang skalabel, handal, dan berdampak — Web, Mobile, Backend, AI." />
-  <meta name="twitter:image"       content="https://frostdev.my.id/assets/images/og-cover.jpg" />
-  <meta name="twitter:image:alt"   content="Nova Adi Saputra — Full Stack Developer Portfolio" />
-  <meta name="twitter:creator"     content="@nvdsptr" />
-  <meta name="twitter:site"        content="@nvdsptr" />
+    <!-- ── Twitter Card ─────────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://frostdev.my.id/" />
+    <meta name="twitter:title" content="Nova Adi Saputra | Full Stack Developer" />
+    <meta name="twitter:description" content="Full Stack Developer & Freelancer sejak 2020. Membangun solusi digital yang skalabel, handal, dan berdampak — Web, Mobile, Backend, AI." />
+    <meta name="twitter:image" content="https://frostdev.my.id/assets/images/og-cover.jpg" />
+    <meta name="twitter:image:alt" content="Nova Adi Saputra — Full Stack Developer Portfolio" />
+    <meta name="twitter:creator" content="@nvdsptr" />
+    <meta name="twitter:site" content="@nvdsptr" />
 
-  <!-- ── JSON-LD Structured Data ──────────────────────── -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Nova Adi Saputra",
-    "url": "https://frostdev.my.id/",
-    "image": "https://frostdev.my.id/assets/images/pasfoto.png",
-    "jobTitle": "Full Stack Developer",
-    "description": "Full Stack Developer dan Freelancer sejak 2020, spesialisasi Web, Mobile, Backend, dan AI.",
-    "email": "novaadisaputra.nasss@gmail.com",
-    "nationality": { "@type": "Country", "name": "Indonesia" },
-    "knowsAbout": ["Web Development", "Mobile Development", "Backend Development", "Artificial Intelligence", "PHP", "Laravel", "React", "Node.js", "Python", "Docker"],
-    "sameAs": [
-      "https://github.com/MrFrost-Nv27",
-      "https://gitlab.com/MrFrost-Nv27",
-      "https://www.linkedin.com/in/nova-adi-saputra-7348a730a",
-      "https://www.instagram.com/nvdsptr/"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Jl. Krendang Tengah No.29",
-      "addressLocality": "Krendang, Kec. Tambora, Jakarta Barat",
-      "postalCode": "11260",
-      "addressRegion": "DKI Jakarta",
-      "addressCountry": "ID"
-    }
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Nova Adi Saputra Portfolio",
-    "url": "https://frostdev.my.id/",
-    "description": "Portfolio Full Stack Developer Nova Adi Saputra — Web, Mobile, Backend, AI.",
-    "inLanguage": ["id", "en"],
-    "author": {
-      "@type": "Person",
-      "name": "Nova Adi Saputra",
-      "url": "https://frostdev.my.id/"
-    }
-  }
-  </script>
-
-  <!-- ── Favicon ───────────────────────────────────────── -->
-  <link rel="icon"    type="image/x-icon" href="favicon.ico" />
-  <link rel="manifest"                    href="site.webmanifest" />
-  <meta name="theme-color" content="#7c6fff" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" id="mainCSS" href="css/style.css" />
-  <script>(function(){document.getElementById('mainCSS').href='css/style.css?v='+Date.now();})();</script>
-  <!-- Tailwind CSS Play CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      corePlugins: { preflight: false },
-      theme: {
-        extend: {
-          colors: {
-            brand: { DEFAULT: '#7c6fff', light: '#a49aff', cyan: '#00d4ff' }
-          },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            mono: ['"Fira Code"', 'monospace']
-          }
+    <!-- ── JSON-LD Structured Data ──────────────────────── -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Nova Adi Saputra",
+        "url": "https://frostdev.my.id/",
+        "image": "https://frostdev.my.id/assets/images/pasfoto.png",
+        "jobTitle": "Full Stack Developer",
+        "description": "Full Stack Developer dan Freelancer sejak 2020, spesialisasi Web, Mobile, Backend, dan AI.",
+        "email": "novaadisaputra.nasss@gmail.com",
+        "nationality": { "@type": "Country", "name": "Indonesia" },
+        "knowsAbout": ["Web Development", "Mobile Development", "Backend Development", "Artificial Intelligence", "PHP", "Laravel", "React", "Node.js", "Python", "Docker"],
+        "sameAs": ["https://github.com/MrFrost-Nv27", "https://gitlab.com/MrFrost-Nv27", "https://www.linkedin.com/in/nova-adi-saputra-7348a730a", "https://www.instagram.com/nvdsptr/"],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Jl. Krendang Tengah No.29",
+          "addressLocality": "Krendang, Kec. Tambora, Jakarta Barat",
+          "postalCode": "11260",
+          "addressRegion": "DKI Jakarta",
+          "addressCountry": "ID"
         }
       }
-    }
-  </script>
-</head>
-<body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Nova Adi Saputra Portfolio",
+        "url": "https://frostdev.my.id/",
+        "description": "Portfolio Full Stack Developer Nova Adi Saputra — Web, Mobile, Backend, AI.",
+        "inLanguage": ["id", "en"],
+        "author": {
+          "@type": "Person",
+          "name": "Nova Adi Saputra",
+          "url": "https://frostdev.my.id/"
+        }
+      }
+    </script>
 
-  <!-- Custom Cursor -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
+    <!-- ── Favicon ───────────────────────────────────────── -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="theme-color" content="#7c6fff" />
 
-  <!-- ========== NAVBAR ========== -->
-  <nav class="navbar" id="navbar" aria-label="Navigasi Utama">
-    <div class="nav-inner">
-      <a href="#hero" class="nav-logo">
-        <span class="bracket">&lt;</span>Nova<span class="bracket">/&gt;</span>
-      </a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#about"    class="nav-link" data-i18n="nav.about">Tentang</a></li>
-        <li><a href="#skills"   class="nav-link" data-i18n="nav.skills">Keahlian</a></li>
-        <li><a href="#projects" class="nav-link" data-i18n="nav.projects">Proyek</a></li>
-        <li><a href="#contact"  class="nav-link" data-i18n="nav.contact">Kontak</a></li>
-      </ul>
-      <div class="nav-controls">
-        <button class="nav-icon-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
-          <i class="fas fa-sun" id="themeIcon"></i>
-        </button>
-        <button class="lang-btn" id="langToggle" aria-label="Switch language" title="Switch language">
-          <img id="langFlag" class="lang-flag" src="https://flagcdn.com/w20/id.png" alt="Indonesia flag" width="20" height="15" aria-hidden="true" />
-          <span id="langLabel">ID</span>
-        </button>
-      </div>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" id="mainCSS" href="css/style.css" />
+    <script>
+      (function () {
+        document.getElementById("mainCSS").href = "css/style.css?v=" + Date.now();
+      })();
+    </script>
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        corePlugins: { preflight: false },
+        theme: {
+          extend: {
+            colors: {
+              brand: { DEFAULT: "#7c6fff", light: "#a49aff", cyan: "#00d4ff" },
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              mono: ['"Fira Code"', "monospace"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <main id="main-content">
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
 
-  <!-- ========== HERO ========== -->
-  <section class="hero" id="hero" aria-labelledby="hero-heading">
-    <canvas id="particleCanvas"></canvas>
-
-    <!-- Glow blobs -->
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-
-    <div class="hero-content">
-      <div class="hero-badge reveal-hero" data-i18n="hero.greeting">👋 Halo, saya</div>
-      <h1 class="hero-name reveal-hero" id="hero-heading">
-        <span class="gradient-text">Nova Adi Saputra</span>
-      </h1>
-      <p class="hero-role reveal-hero">
-        <span data-i18n="hero.role.prefix">Saya seorang</span>&nbsp;
-        <span id="typingText" class="typing-text"></span><span class="caret">|</span>
-      </p>
-      <p class="hero-desc reveal-hero" data-i18n="hero.desc">
-        Passionate developer yang suka membangun pengalaman digital yang indah,
-        fungsional, dan bermakna. Siap berkolaborasi untuk mewujudkan ide-ide
-        kreatif menjadi kenyataan.
-      </p>
-      <div class="hero-actions reveal-hero">
-        <a href="#projects" class="btn btn-primary">
-          <i class="fas fa-rocket"></i> <span data-i18n="hero.cta.projects">Lihat Proyek</span>
-        </a>
-        <a href="#contact" class="btn btn-ghost">
-          <i class="fas fa-paper-plane"></i> <span data-i18n="hero.cta.contact">Hubungi Saya</span>
-        </a>
-      </div>
-      <div class="hero-socials reveal-hero">
-        <a href="https://github.com/MrFrost-Nv27" target="_blank" rel="noopener noreferrer" class="icon-btn" title="GitHub" aria-label="GitHub Nova Adi Saputra"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/nova-adi-saputra-7348a730a" target="_blank" rel="noopener noreferrer" class="icon-btn" title="LinkedIn" aria-label="LinkedIn Nova Adi Saputra"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://www.instagram.com/nvdsptr/" target="_blank" rel="noopener noreferrer" class="icon-btn" title="Instagram" aria-label="Instagram @nvdsptr"><i class="fab fa-instagram"></i></a>
-        <a href="mailto:novaadisaputra.nasss@gmail.com" class="icon-btn" title="Email" aria-label="Kirim Email ke Nova Adi Saputra"><i class="fas fa-envelope"></i></a>
-        <a href="https://wa.me/6282241198283" target="_blank" rel="noopener noreferrer" class="icon-btn" title="WhatsApp" aria-label="WhatsApp Nova Adi Saputra"><i class="fab fa-whatsapp"></i></a>
-      </div>
-    </div>
-
-    <div class="scroll-hint">
-      <span data-i18n="hero.scroll">Scroll</span>
-      <div class="chev"></div>
-    </div>
-  </section>
-
-  <!-- ========== ABOUT ========== -->
-  <section class="section about" id="about" aria-labelledby="about-heading">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="tag" data-i18n="about.tag">Tentang Saya</span>
-        <h2 id="about-heading"><span data-i18n="about.title">Mengenal Saya</span> <span class="gradient-text" data-i18n="about.title.hl">Lebih Dalam</span></h2>
-      </div>
-
-      <div class="about-grid">
-        <!-- Image -->
-        <div class="about-img-wrap reveal">
-          <div class="img-frame">
-            <img src="assets/images/pasfoto.png" alt="Nova Adi Saputra" />
-            <div class="img-ring"></div>
-            <div class="img-badge">
-              <i class="fas fa-code"></i> <span data-i18n="about.badge">Dev</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Text -->
-        <div class="about-body reveal">
-          <h3 data-i18n="about.h3">Siapa Saya?</h3>
-          <p data-i18n-html="about.p1">
-            Halo! Saya Nova Adi Saputra, bisa dipanggil <strong>Nova</strong>.
-            Saya adalah <strong>Full Stack Developer</strong> dan freelancer
-            sejak tahun 2020 hingga sekarang. Saya mengerjakan berbagai proyek
-            kecil, menengah, hingga institusi dengan pendekatan teknis yang
-            terukur dan berorientasi hasil.
-          </p>
-          <p data-i18n="about.p2">
-            Saya fokus membangun solusi end-to-end dari frontend hingga backend,
-            API, database, deployment, dan maintenance. Saya percaya solusi yang
-            baik harus scalable, aman, dan memberi dampak nyata bagi pengguna.
-          </p>
-
-          <div class="stats-row">
-            <div class="stat-card">
-              <span class="stat-num" id="statYears" data-since="2020">0</span><span class="stat-plus">+</span>
-              <span class="stat-lbl" data-i18n-html="about.stat.years">Tahun<br/>Pengalaman</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-num" data-target="50">0</span><span class="stat-plus">+</span>
-              <span class="stat-lbl" data-i18n-html="about.stat.projects">Proyek<br/>Selesai</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-num" data-target="5">0</span><span class="stat-plus">+</span>
-              <span class="stat-lbl" data-i18n-html="about.stat.clients">Bahasa<br/>Pemrograman</span>
-            </div>
-          </div>
-
-          <a href="#" class="btn btn-primary" download>
-            <i class="fas fa-download"></i> <span data-i18n="about.cv">Download CV</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== SKILLS ========== -->
-  <section class="section skills" id="skills" aria-labelledby="skills-heading">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="tag" data-i18n="skills.tag">Keahlian</span>
-        <h2 id="skills-heading"><span data-i18n="skills.title">Teknologi yang</span> <span class="gradient-text" data-i18n="skills.title.hl">Saya Kuasai</span></h2>
-      </div>
-
-      <div class="skills-grid">
-        <div class="skill-card reveal">
-          <div class="skill-card-icon"><i class="fas fa-desktop"></i></div>
-          <h3 data-i18n="skills.frontend">Frontend</h3>
-          <div class="chip-wrap">
-            <span class="chip">HTML</span>
-            <span class="chip">CSS</span>
-            <span class="chip">JavaScript</span>
-            <span class="chip">TypeScript</span>
-            <span class="chip">React</span>
-            <span class="chip">Vue.js</span>
-            <span class="chip">Tailwind CSS</span>
-            <span class="chip">Bootstrap</span>
-          </div>
-        </div>
-
-        <div class="skill-card reveal">
-          <div class="skill-card-icon"><i class="fas fa-server"></i></div>
-          <h3 data-i18n="skills.backend">Backend</h3>
-          <div class="chip-wrap">
-            <span class="chip">PHP</span>
-            <span class="chip">Laravel</span>
-            <span class="chip">Node.js</span>
-            <span class="chip">Express.js</span>
-            <span class="chip">C# / .NET</span>
-            <span class="chip">Go</span>
-            <span class="chip">Python</span>
-            <span class="chip">REST API</span>
-            <span class="chip">GraphQL</span>
-          </div>
-        </div>
-
-        <div class="skill-card reveal">
-          <div class="skill-card-icon"><i class="fas fa-brain"></i></div>
-          <h3 data-i18n="skills.ai">Artificial Intelligence</h3>
-          <div class="chip-wrap">
-            <span class="chip">Python</span>
-            <span class="chip">TensorFlow</span>
-            <span class="chip">PyTorch</span>
-            <span class="chip">Scikit-learn</span>
-            <span class="chip">Pandas</span>
-            <span class="chip">NumPy</span>
-            <span class="chip">OpenCV</span>
-            <span class="chip">LLM Integration</span>
-          </div>
-        </div>
-
-        <div class="skill-card reveal">
-          <div class="skill-card-icon"><i class="fas fa-database"></i></div>
-          <h3 data-i18n="skills.tools">Database &amp; Tools</h3>
-          <div class="chip-wrap">
-            <span class="chip">MySQL</span>
-            <span class="chip">PostgreSQL</span>
-            <span class="chip">MongoDB</span>
-            <span class="chip">Redis</span>
-            <span class="chip">Firebase</span>
-            <span class="chip">Git</span>
-            <span class="chip">Docker</span>
-            <span class="chip">Linux</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== PROJECTS ========== -->
-  <section class="section projects" id="projects" aria-labelledby="projects-heading">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="tag" data-i18n="projects.tag">Portofolio</span>
-        <h2 id="projects-heading"><span data-i18n="projects.title">Proyek</span> <span class="gradient-text" data-i18n="projects.title.hl">Unggulan</span></h2>
-      </div>
-
-      <div class="filter-row reveal">
-        <button class="filter-btn active" data-filter="all" data-i18n="filter.all">Semua</button>
-        <button class="filter-btn" data-filter="web" data-i18n="filter.web">Web App</button>
-        <button class="filter-btn" data-filter="mobile" data-i18n="filter.mobile">Mobile</button>
-        <button class="filter-btn" data-filter="ai" data-i18n="filter.ai">AI</button>
-      </div>
-
-      <div class="projects-grid" id="projectsGrid">
-        <!-- Cards dirender secara dinamis dari array PROJECTS di js/main.js -->
-      </div><!-- /projects-grid -->
-
-      <p class="proj-note reveal" data-i18n="projects.note">Klik kartu proyek untuk melihat detail, screenshot (jika tersedia), serta tautan live dan repository.</p>
-    </div>
-  </section>
-
-  <!-- ========== CONTACT ========== -->
-  <section class="section contact" id="contact" aria-labelledby="contact-heading">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="tag" data-i18n="contact.tag">Kontak</span>
-        <h2 id="contact-heading"><span data-i18n="contact.title">Mari</span> <span class="gradient-text" data-i18n="contact.title.hl">Berkolaborasi</span></h2>
-      </div>
-
-      <div class="contact-grid">
-        <!-- Info -->
-        <div class="contact-info reveal">
-          <p class="contact-lead" data-i18n="contact.lead">
-            Punya proyek menarik atau ingin ngobrol seputar teknologi?
-            Jangan ragu untuk menghubungi saya!
-          </p>
-
-          <div class="contact-items">
-            <address style="font-style:normal">
-            <div class="contact-item">
-              <div class="ci-icon"><i class="fab fa-whatsapp"></i></div>
-              <div>
-                <span class="ci-label" data-i18n="ci.whatsapp.label">WhatsApp</span>
-                <a class="ci-value" href="https://wa.me/6282241198283" target="_blank" rel="noopener noreferrer">+6282241198283</a>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="ci-icon"><i class="fas fa-envelope"></i></div>
-              <div>
-                <span class="ci-label" data-i18n="ci.email.label">Email</span>
-                <a class="ci-value" href="mailto:novaadisaputra.nasss@gmail.com">novaadisaputra.nasss@gmail.com</a>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
-              <div>
-                <span class="ci-label" data-i18n="ci.location.label">Lokasi</span>
-                <span class="ci-value" data-i18n="ci.location.value">Jl. Krendang Tengah No.29, Krendang, Kec. Tambora, Jakarta Barat 11260</span>
-              </div>
-            </div>
-            </address>
-          </div>
-
-          <div class="social-row">
-            <a href="https://github.com/MrFrost-Nv27" target="_blank" rel="noopener noreferrer" class="social-pill"><i class="fab fa-github"></i> GitHub</a>
-            <a href="https://gitlab.com/MrFrost-Nv27" target="_blank" rel="noopener noreferrer" class="social-pill"><i class="fab fa-gitlab"></i> GitLab</a>
-            <a href="https://www.linkedin.com/in/nova-adi-saputra-7348a730a" target="_blank" rel="noopener noreferrer" class="social-pill"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-            <a href="https://www.instagram.com/nvdsptr/" target="_blank" rel="noopener noreferrer" class="social-pill"><i class="fab fa-instagram"></i> Instagram</a>
-            <a href="https://wa.me/6282241198283" target="_blank" rel="noopener noreferrer" class="social-pill"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-          </div>
-        </div>
-
-        <!-- Form -->
-        <form class="contact-form reveal" id="contactForm" novalidate>
-          <div class="field-group">
-            <input type="text" id="fname" placeholder=" " required autocomplete="name" />
-            <label for="fname" data-i18n="form.name">Nama Lengkap</label>
-          </div>
-          <div class="field-group">
-            <select id="fservice" required>
-              <option value="" disabled selected></option>
-              <option value="Web Development" data-i18n-opt="form.service.web">Web Development</option>
-              <option value="Mobile Development" data-i18n-opt="form.service.mobile">Mobile Development</option>
-              <option value="Backend / API" data-i18n-opt="form.service.backend">Backend / API</option>
-              <option value="AI / Machine Learning" data-i18n-opt="form.service.ai">AI / Machine Learning</option>
-              <option value="Konsultasi Teknis" data-i18n-opt="form.service.consult">Konsultasi Teknis</option>
-              <option value="Lainnya" data-i18n-opt="form.service.other">Lainnya</option>
-            </select>
-            <label for="fservice" data-i18n="form.service">Jenis Layanan</label>
-          </div>
-          <div class="field-group">
-            <textarea id="fmsg" rows="5" placeholder=" " required></textarea>
-            <label for="fmsg" data-i18n="form.message">Pesan / Deskripsi Proyek</label>
-          </div>
-          <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
-            <i class="fas fa-paper-plane"></i> <span data-i18n="form.send">Kirim Pesan</span>
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar" id="navbar" aria-label="Navigasi Utama">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo"> <span class="bracket">&lt;</span>Nova<span class="bracket">/&gt;</span> </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about" class="nav-link" data-i18n="nav.about">Tentang</a></li>
+          <li><a href="#skills" class="nav-link" data-i18n="nav.skills">Keahlian</a></li>
+          <li><a href="#projects" class="nav-link" data-i18n="nav.projects">Proyek</a></li>
+          <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Kontak</a></li>
+        </ul>
+        <div class="nav-controls">
+          <button class="nav-icon-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+            <i class="fas fa-sun" id="themeIcon"></i>
           </button>
-        </form>
+          <button class="lang-btn" id="langToggle" aria-label="Switch language" title="Switch language">
+            <img id="langFlag" class="lang-flag" src="https://flagcdn.com/w20/id.png" alt="Indonesia flag" width="20" height="15" aria-hidden="true" />
+            <span id="langLabel">ID</span>
+          </button>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+
+    <main id="main-content">
+      <!-- ========== HERO ========== -->
+      <section class="hero" id="hero" aria-labelledby="hero-heading">
+        <canvas id="particleCanvas"></canvas>
+
+        <!-- Glow blobs -->
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+
+        <div class="hero-content">
+          <div class="hero-badge reveal-hero" data-i18n="hero.greeting">👋 Halo, saya</div>
+          <h1 class="hero-name reveal-hero" id="hero-heading">
+            <span class="gradient-text">Nova Adi Saputra</span>
+          </h1>
+          <p class="hero-role reveal-hero"><span data-i18n="hero.role.prefix">Saya seorang</span>&nbsp; <span id="typingText" class="typing-text"></span><span class="caret">|</span></p>
+          <p class="hero-desc reveal-hero" data-i18n="hero.desc">Passionate developer yang suka membangun pengalaman digital yang indah, fungsional, dan bermakna. Siap berkolaborasi untuk mewujudkan ide-ide kreatif menjadi kenyataan.</p>
+          <div class="hero-actions reveal-hero">
+            <a href="#projects" class="btn btn-primary"> <i class="fas fa-rocket"></i> <span data-i18n="hero.cta.projects">Lihat Proyek</span> </a>
+            <a href="#contact" class="btn btn-ghost"> <i class="fas fa-paper-plane"></i> <span data-i18n="hero.cta.contact">Hubungi Saya</span> </a>
+          </div>
+          <div class="hero-socials reveal-hero">
+            <a href="https://github.com/MrFrost-Nv27" target="_blank" rel="noopener noreferrer" class="icon-btn" title="GitHub" aria-label="GitHub Nova Adi Saputra"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/nova-adi-saputra-7348a730a" target="_blank" rel="noopener noreferrer" class="icon-btn" title="LinkedIn" aria-label="LinkedIn Nova Adi Saputra"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/nvdsptr/" target="_blank" rel="noopener noreferrer" class="icon-btn" title="Instagram" aria-label="Instagram @nvdsptr"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:novaadisaputra.nasss@gmail.com" class="icon-btn" title="Email" aria-label="Kirim Email ke Nova Adi Saputra"><i class="fas fa-envelope"></i></a>
+            <a href="https://wa.me/6282241198283" target="_blank" rel="noopener noreferrer" class="icon-btn" title="WhatsApp" aria-label="WhatsApp Nova Adi Saputra"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div class="scroll-hint">
+          <span data-i18n="hero.scroll">Scroll</span>
+          <div class="chev"></div>
+        </div>
+      </section>
+
+      <!-- ========== ABOUT ========== -->
+      <section class="section about" id="about" aria-labelledby="about-heading">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="tag" data-i18n="about.tag">Tentang Saya</span>
+            <h2 id="about-heading"><span data-i18n="about.title">Mengenal Saya</span> <span class="gradient-text" data-i18n="about.title.hl">Lebih Dalam</span></h2>
+          </div>
+
+          <div class="about-grid">
+            <!-- Image -->
+            <div class="about-img-wrap reveal">
+              <div class="img-frame">
+                <img src="assets/images/pasfoto.png" alt="Nova Adi Saputra" />
+                <div class="img-ring"></div>
+                <div class="img-badge"><i class="fas fa-code"></i> <span data-i18n="about.badge">Dev</span></div>
+              </div>
+            </div>
+
+            <!-- Text -->
+            <div class="about-body reveal">
+              <h3 data-i18n="about.h3">Siapa Saya?</h3>
+              <p data-i18n-html="about.p1">
+                Halo! Saya Nova Adi Saputra, bisa dipanggil <strong>Nova</strong>. Saya adalah <strong>Full Stack Developer</strong> dan freelancer sejak tahun 2020 hingga sekarang. Saya mengerjakan berbagai proyek kecil, menengah, hingga
+                institusi dengan pendekatan teknis yang terukur dan berorientasi hasil.
+              </p>
+              <p data-i18n="about.p2">
+                Saya fokus membangun solusi end-to-end dari frontend hingga backend, API, database, deployment, dan maintenance. Saya percaya solusi yang baik harus scalable, aman, dan memberi dampak nyata bagi pengguna.
+              </p>
+
+              <div class="stats-row">
+                <div class="stat-card">
+                  <span class="stat-num" id="statYears" data-since="2020">0</span><span class="stat-plus">+</span>
+                  <span class="stat-lbl" data-i18n-html="about.stat.years">Tahun<br />Pengalaman</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-num" data-target="50">0</span><span class="stat-plus">+</span>
+                  <span class="stat-lbl" data-i18n-html="about.stat.projects">Proyek<br />Selesai</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-num" data-target="5">0</span><span class="stat-plus">+</span>
+                  <span class="stat-lbl" data-i18n-html="about.stat.clients">Bahasa<br />Pemrograman</span>
+                </div>
+              </div>
+
+              <a href="assets/cv.pdf" class="btn btn-primary" download> <i class="fas fa-download"></i> <span data-i18n="about.cv">Download CV</span> </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== SKILLS ========== -->
+      <section class="section skills" id="skills" aria-labelledby="skills-heading">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="tag" data-i18n="skills.tag">Keahlian</span>
+            <h2 id="skills-heading"><span data-i18n="skills.title">Teknologi yang</span> <span class="gradient-text" data-i18n="skills.title.hl">Saya Kuasai</span></h2>
+          </div>
+
+          <div class="skills-grid">
+            <div class="skill-card reveal">
+              <div class="skill-card-icon"><i class="fas fa-desktop"></i></div>
+              <h3 data-i18n="skills.frontend">Frontend</h3>
+              <div class="chip-wrap">
+                <span class="chip">HTML</span>
+                <span class="chip">CSS</span>
+                <span class="chip">JavaScript</span>
+                <span class="chip">TypeScript</span>
+                <span class="chip">React</span>
+                <span class="chip">Vue.js</span>
+                <span class="chip">Tailwind CSS</span>
+                <span class="chip">Bootstrap</span>
+              </div>
+            </div>
+
+            <div class="skill-card reveal">
+              <div class="skill-card-icon"><i class="fas fa-server"></i></div>
+              <h3 data-i18n="skills.backend">Backend</h3>
+              <div class="chip-wrap">
+                <span class="chip">PHP</span>
+                <span class="chip">Laravel</span>
+                <span class="chip">Node.js</span>
+                <span class="chip">Express.js</span>
+                <span class="chip">C# / .NET</span>
+                <span class="chip">Go</span>
+                <span class="chip">Python</span>
+                <span class="chip">REST API</span>
+                <span class="chip">GraphQL</span>
+              </div>
+            </div>
+
+            <div class="skill-card reveal">
+              <div class="skill-card-icon"><i class="fas fa-brain"></i></div>
+              <h3 data-i18n="skills.ai">Artificial Intelligence</h3>
+              <div class="chip-wrap">
+                <span class="chip">Python</span>
+                <span class="chip">TensorFlow</span>
+                <span class="chip">PyTorch</span>
+                <span class="chip">Scikit-learn</span>
+                <span class="chip">Pandas</span>
+                <span class="chip">NumPy</span>
+                <span class="chip">OpenCV</span>
+                <span class="chip">LLM Integration</span>
+              </div>
+            </div>
+
+            <div class="skill-card reveal">
+              <div class="skill-card-icon"><i class="fas fa-database"></i></div>
+              <h3 data-i18n="skills.tools">Database &amp; Tools</h3>
+              <div class="chip-wrap">
+                <span class="chip">MySQL</span>
+                <span class="chip">PostgreSQL</span>
+                <span class="chip">MongoDB</span>
+                <span class="chip">Redis</span>
+                <span class="chip">Firebase</span>
+                <span class="chip">Git</span>
+                <span class="chip">Docker</span>
+                <span class="chip">Linux</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== PROJECTS ========== -->
+      <section class="section projects" id="projects" aria-labelledby="projects-heading">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="tag" data-i18n="projects.tag">Portofolio</span>
+            <h2 id="projects-heading"><span data-i18n="projects.title">Proyek</span> <span class="gradient-text" data-i18n="projects.title.hl">Unggulan</span></h2>
+          </div>
+
+          <div class="filter-row reveal">
+            <button class="filter-btn active" data-filter="all" data-i18n="filter.all">Semua</button>
+            <button class="filter-btn" data-filter="web" data-i18n="filter.web">Web App</button>
+            <button class="filter-btn" data-filter="mobile" data-i18n="filter.mobile">Mobile</button>
+            <button class="filter-btn" data-filter="ai" data-i18n="filter.ai">AI</button>
+          </div>
+
+          <div class="projects-grid" id="projectsGrid">
+            <!-- Cards dirender secara dinamis dari array PROJECTS di js/main.js -->
+          </div>
+          <!-- /projects-grid -->
+
+          <p class="proj-note reveal" data-i18n="projects.note">Klik kartu proyek untuk melihat detail, screenshot (jika tersedia), serta tautan live dan repository.</p>
+        </div>
+      </section>
+
+      <!-- ========== CONTACT ========== -->
+      <section class="section contact" id="contact" aria-labelledby="contact-heading">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="tag" data-i18n="contact.tag">Kontak</span>
+            <h2 id="contact-heading"><span data-i18n="contact.title">Mari</span> <span class="gradient-text" data-i18n="contact.title.hl">Berkolaborasi</span></h2>
+          </div>
+
+          <div class="contact-grid">
+            <!-- Info -->
+            <div class="contact-info reveal">
+              <p class="contact-lead" data-i18n="contact.lead">Punya proyek menarik atau ingin ngobrol seputar teknologi? Jangan ragu untuk menghubungi saya!</p>
+
+              <div class="contact-items">
+                <address style="font-style: normal">
+                  <div class="contact-item">
+                    <div class="ci-icon"><i class="fab fa-whatsapp"></i></div>
+                    <div>
+                      <span class="ci-label" data-i18n="ci.whatsapp.label">WhatsApp</span>
+                      <a class="ci-value" href="https://wa.me/6282241198283" target="_blank" rel="noopener noreferrer">+6282241198283</a>
+                    </div>
+                  </div>
+                  <div class="contact-item">
+                    <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+                    <div>
+                      <span class="ci-label" data-i18n="ci.email.label">Email</span>
+                      <a class="ci-value" href="mailto:novaadisaputra.nasss@gmail.com">novaadisaputra.nasss@gmail.com</a>
+                    </div>
+                  </div>
+                  <div class="contact-item">
+                    <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div>
+                      <span class="ci-label" data-i18n="ci.location.label">Lokasi</span>
+                      <span class="ci-value" data-i18n="ci.location.value">Jl. Krendang Tengah No.29, Krendang, Kec. Tambora, Jakarta Barat 11260</span>
+                    </div>
+                  </div>
+                </address>
+              </div>
+
+              <div class="social-row">
+                <a href="https://github.com/MrFrost-Nv27" target="_blank" rel="noopener noreferrer" class="social-pill"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://gitlab.com/MrFrost-Nv27" target="_blank" rel="noopener noreferrer" class="social-pill"><i class="fab fa-gitlab"></i> GitLab</a>
+                <a href="https://www.linkedin.com/in/nova-adi-saputra-7348a730a" target="_blank" rel="noopener noreferrer" class="social-pill"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                <a href="https://www.instagram.com/nvdsptr/" target="_blank" rel="noopener noreferrer" class="social-pill"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://wa.me/6282241198283" target="_blank" rel="noopener noreferrer" class="social-pill"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+              </div>
+            </div>
+
+            <!-- Form -->
+            <form class="contact-form reveal" id="contactForm" novalidate>
+              <div class="field-group">
+                <input type="text" id="fname" placeholder=" " required autocomplete="name" />
+                <label for="fname" data-i18n="form.name">Nama Lengkap</label>
+              </div>
+              <div class="field-group">
+                <select id="fservice" required>
+                  <option value="" disabled selected></option>
+                  <option value="Web Development" data-i18n-opt="form.service.web">Web Development</option>
+                  <option value="Mobile Development" data-i18n-opt="form.service.mobile">Mobile Development</option>
+                  <option value="Backend / API" data-i18n-opt="form.service.backend">Backend / API</option>
+                  <option value="AI / Machine Learning" data-i18n-opt="form.service.ai">AI / Machine Learning</option>
+                  <option value="Konsultasi Teknis" data-i18n-opt="form.service.consult">Konsultasi Teknis</option>
+                  <option value="Lainnya" data-i18n-opt="form.service.other">Lainnya</option>
+                </select>
+                <label for="fservice" data-i18n="form.service">Jenis Layanan</label>
+              </div>
+              <div class="field-group">
+                <textarea id="fmsg" rows="5" placeholder=" " required></textarea>
+                <label for="fmsg" data-i18n="form.message">Pesan / Deskripsi Proyek</label>
+              </div>
+              <button type="submit" class="btn btn-primary btn-full" id="submitBtn"><i class="fas fa-paper-plane"></i> <span data-i18n="form.send">Kirim Pesan</span></button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========== PROJECT DETAIL MODAL ========== -->
+    <div class="project-modal" id="projectModal" aria-hidden="true">
+      <div class="project-modal-backdrop" data-close-modal></div>
+      <div class="project-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="project-modal-close" id="projectModalClose" aria-label="Close">&times;</button>
+        <h3 id="modalTitle">Project Title</h3>
+        <p id="modalDesc">Project description</p>
+
+        <div class="modal-gallery" id="modalGallery"></div>
+
+        <div class="modal-actions">
+          <a href="#" id="modalLiveLink" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden> <i class="fas fa-globe"></i> <span data-i18n="modal.live">Live Demo</span> </a>
+          <a href="#" id="modalRepoLink" class="btn btn-ghost" target="_blank" rel="noopener noreferrer" hidden> <i class="fab fa-github"></i> <span data-i18n="modal.repo">Repository</span> </a>
+        </div>
       </div>
     </div>
-  </section>
 
-  </main>
-
-  <!-- ========== PROJECT DETAIL MODAL ========== -->
-  <div class="project-modal" id="projectModal" aria-hidden="true">
-    <div class="project-modal-backdrop" data-close-modal></div>
-    <div class="project-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="project-modal-close" id="projectModalClose" aria-label="Close">&times;</button>
-      <h3 id="modalTitle">Project Title</h3>
-      <p id="modalDesc">Project description</p>
-
-      <div class="modal-gallery" id="modalGallery"></div>
-
-      <div class="modal-actions">
-        <a href="#" id="modalLiveLink" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>
-          <i class="fas fa-globe"></i> <span data-i18n="modal.live">Live Demo</span>
-        </a>
-        <a href="#" id="modalRepoLink" class="btn btn-ghost" target="_blank" rel="noopener noreferrer" hidden>
-          <i class="fab fa-github"></i> <span data-i18n="modal.repo">Repository</span>
-        </a>
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+      <div class="container footer-inner">
+        <a href="#hero" class="nav-logo"> <span class="bracket">&lt;</span>Nova<span class="bracket">/&gt;</span> </a>
+        <p class="footer-tagline" data-i18n="footer.tagline">Full Stack Developer &mdash; Membangun solusi digital yang skalabel, handal, dan berdampak.</p>
+        <p data-i18n-html="footer.made">Dirancang &amp; Dikembangkan oleh <strong>Nova Adi Saputra</strong></p>
+        <p class="copy" data-i18n="footer.copy">&copy; 2026 Nova Adi Saputra. All rights reserved.</p>
       </div>
-    </div>
-  </div>
+    </footer>
 
-  <!-- ========== FOOTER ========== -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <a href="#hero" class="nav-logo">
-        <span class="bracket">&lt;</span>Nova<span class="bracket">/&gt;</span>
-      </a>
-      <p class="footer-tagline" data-i18n="footer.tagline">Full Stack Developer &mdash; Membangun solusi digital yang skalabel, handal, dan berdampak.</p>
-      <p data-i18n-html="footer.made">Dirancang &amp; Dikembangkan oleh <strong>Nova Adi Saputra</strong></p>
-      <p class="copy" data-i18n="footer.copy">&copy; 2026 Nova Adi Saputra. All rights reserved.</p>
-    </div>
-  </footer>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VN0QKEYW7Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  <script>(function(){var s=document.createElement('script');s.src='js/main.js?v='+Date.now();document.body.appendChild(s);})();</script>
-</body>
+      gtag("config", "G-VN0QKEYW7Y");
+    </script>
+    <script>
+      (function () {
+        var s = document.createElement("script");
+        s.src = "js/main.js?v=" + Date.now();
+        document.body.appendChild(s);
+      })();
+    </script>
+  </body>
 </html>
