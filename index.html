@@ -41,6 +41,7 @@
     <meta name="robots" content="index, follow" />
     <meta name="language" content="Indonesian" />
     <link rel="canonical" href="https://frostdev.my.id/" />
+    <link rel="sitemap" type="application/xml" href="https://frostdev.my.id/sitemap.xml" />
 
     <!-- ── Hreflang ─────────────────────────────────── -->
     <link rel="alternate" hreflang="id" href="https://frostdev.my.id/" />
@@ -117,34 +118,26 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" id="mainCSS" href="css/style.css" />
-    <script>
-      (function () {
-        document.getElementById("mainCSS").href = "css/style.css?v=" + Date.now();
-      })();
-    </script>
-    <!-- Tailwind CSS Play CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        corePlugins: { preflight: false },
-        theme: {
-          extend: {
-            colors: {
-              brand: { DEFAULT: "#7c6fff", light: "#a49aff", cyan: "#00d4ff" },
-            },
-            fontFamily: {
-              sans: ["Inter", "sans-serif"],
-              mono: ['"Fira Code"', "monospace"],
-            },
-          },
-        },
-      };
-    </script>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <!-- Single consolidated font request with display=swap -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" onload="this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" /></noscript>
+    <!-- Font Awesome: non-blocking load -->
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" onload="this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
+    <!-- Main stylesheet: preload + stable cache (no Date.now busting) -->
+    <link rel="preload" as="style" href="css/style.css?v=20260402" onload="this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="css/style.css?v=20260402" /></noscript>
+    <!-- Critical above-the-fold CSS: painted immediately before stylesheet loads -->
+    <style>
+      :root{--nav-h:70px;--bg:#f3f4f8;--txt:#1a1a2e;--primary:#6558e8}
+      html.dark{--bg:#09090f;--txt:#e8e8f0}
+      *,::before,::after{box-sizing:border-box;margin:0;padding:0}
+      body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--txt);min-height:100vh}
+      .navbar{position:fixed;top:0;left:0;width:100%;height:var(--nav-h);z-index:100;display:flex;align-items:center}
+      .nav-inner{width:100%;max-width:1180px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:100%}
+      .cursor,.cursor-ring{display:none}
+    </style>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -533,12 +526,6 @@
 
       gtag("config", "G-VN0QKEYW7Y");
     </script>
-    <script>
-      (function () {
-        var s = document.createElement("script");
-        s.src = "js/main.js?v=" + Date.now();
-        document.body.appendChild(s);
-      })();
-    </script>
+    <script defer src="js/main.js?v=20260402"></script>
   </body>
 </html>

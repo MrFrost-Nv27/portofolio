@@ -416,23 +416,26 @@ function applyTheme(theme) {
   }
 
   let particles = [];
+  let rafId = null;
 
   window.initParticles = function () {
-    particles = Array.from({ length: 70 }, () => new Dot());
+    /* 50 dots (was 70): reduces O(n²) line checks from 4,900 → 1,225/frame */
+    particles = Array.from({ length: 50 }, () => new Dot());
   };
 
   function connectDots() {
     const c = getColors();
+    const DIST = 100; /* reduced from 110 */
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
         const dx = particles[i].x - particles[j].x;
         const dy = particles[i].y - particles[j].y;
         const d  = Math.hypot(dx, dy);
-        if (d < 110) {
+        if (d < DIST) {
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(${c.line},${c.lineA * (1 - d / 110)})`;
+          ctx.strokeStyle = `rgba(${c.line},${c.lineA * (1 - d / DIST)})`;
           ctx.lineWidth = 0.5;
           ctx.stroke();
         }
@@ -444,13 +447,28 @@ function applyTheme(theme) {
     ctx.clearRect(0, 0, cvs.width, cvs.height);
     connectDots();
     particles.forEach(p => { p.tick(); p.draw(); });
-    requestAnimationFrame(loop);
+    rafId = requestAnimationFrame(loop);
   }
 
-  resize();
-  window.initParticles();
-  loop();
-  window.addEventListener('resize', () => { resize(); window.initParticles(); });
+  function start() {
+    resize();
+    window.initParticles();
+    loop();
+  }
+
+  /* Start after page load so it never competes with FCP/LCP rendering */
+  if (document.readyState === 'complete') {
+    (window.requestIdleCallback || setTimeout)(start, 200);
+  } else {
+    window.addEventListener('load', function () {
+      (window.requestIdleCallback || setTimeout)(start, 200);
+    }, { once: true });
+  }
+
+  window.addEventListener('resize', () => {
+    resize();
+    window.initParticles();
+  });
 })();
 
 /* ── TYPING EFFECT ─────────────────────────────────────────── */
