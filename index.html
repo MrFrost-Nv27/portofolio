@@ -255,7 +255,7 @@
                 </div>
               </div>
 
-              <a href="assets/cv.pdf" class="btn btn-primary" download> <i class="fas fa-download"></i> <span data-i18n="about.cv">Download CV</span> </a>
+              <a href="assets/cv.pdf" class="btn btn-primary" id="cvDownload"> <i class="fas fa-download"></i> <span data-i18n="about.cv">Download CV</span> </a>
             </div>
           </div>
         </div>
@@ -435,6 +435,24 @@
       </section>
     </main>
 
+    <!-- ========== PRIVACY POLICY MODAL ========== -->
+    <div class="legal-modal" id="privacyModal" aria-hidden="true">
+      <div class="legal-modal-backdrop" data-close-legal></div>
+      <div class="legal-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+        <button class="legal-modal-close" data-close-legal aria-label="Close">&times;</button>
+        <div class="legal-modal-body" id="privacyBody"></div>
+      </div>
+    </div>
+
+    <!-- ========== TERMS & CONDITIONS MODAL ========== -->
+    <div class="legal-modal" id="termsModal" aria-hidden="true">
+      <div class="legal-modal-backdrop" data-close-legal></div>
+      <div class="legal-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
+        <button class="legal-modal-close" data-close-legal aria-label="Close">&times;</button>
+        <div class="legal-modal-body" id="termsBody"></div>
+      </div>
+    </div>
+
     <!-- ========== PROJECT DETAIL MODAL ========== -->
     <div class="project-modal" id="projectModal" aria-hidden="true">
       <div class="project-modal-backdrop" data-close-modal></div>
@@ -454,11 +472,53 @@
 
     <!-- ========== FOOTER ========== -->
     <footer class="footer">
-      <div class="container footer-inner">
-        <a href="#hero" class="nav-logo"> <span class="bracket">&lt;</span>Nova<span class="bracket">/&gt;</span> </a>
-        <p class="footer-tagline" data-i18n="footer.tagline">Full Stack Developer &mdash; Membangun solusi digital yang skalabel, handal, dan berdampak.</p>
-        <p data-i18n-html="footer.made">Dirancang &amp; Dikembangkan oleh <strong>Nova Adi Saputra</strong></p>
-        <p class="copy" data-i18n="footer.copy">&copy; 2026 Nova Adi Saputra. All rights reserved.</p>
+      <div class="container">
+        <div class="footer-main">
+          <!-- Brand -->
+          <div class="footer-brand">
+            <a href="#hero" class="nav-logo"><span class="bracket">&lt;</span>Nova<span class="bracket">/&gt;</span></a>
+            <p class="footer-tagline" data-i18n="footer.tagline">Full Stack Developer &mdash; Membangun solusi digital yang skalabel, handal, dan berdampak.</p>
+            <div class="footer-socials">
+              <a href="https://github.com/MrFrost-Nv27" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="https://gitlab.com/MrFrost-Nv27" target="_blank" rel="noopener noreferrer" aria-label="GitLab"><i class="fab fa-gitlab"></i></a>
+              <a href="https://www.linkedin.com/in/nova-adi-saputra-7348a730a" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://www.instagram.com/nvdsptr/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="https://wa.me/6282241198283" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+
+          <!-- Nav -->
+          <div class="footer-col">
+            <h4 class="footer-col-title" data-i18n="footer.col.nav">Navigasi</h4>
+            <ul class="footer-nav">
+              <li><a href="#about"    data-i18n="nav.about">Tentang</a></li>
+              <li><a href="#skills"   data-i18n="nav.skills">Keahlian</a></li>
+              <li><a href="#projects" data-i18n="nav.projects">Proyek</a></li>
+              <li><a href="#contact"  data-i18n="nav.contact">Kontak</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div class="footer-col">
+            <h4 class="footer-col-title" data-i18n="footer.col.contact">Kontak</h4>
+            <ul class="footer-nav">
+              <li><a href="mailto:novaadisaputra.nasss@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
+              <li><a href="https://wa.me/6282241198283" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+              <li><a href="https://www.linkedin.com/in/nova-adi-saputra-7348a730a" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+              <li><a href="assets/cv.pdf" id="cvDownloadFooter"><i class="fas fa-file-pdf"></i> <span data-i18n="about.cv">Download CV</span></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="copy" data-i18n="footer.copy">&copy; 2026 Nova Adi Saputra. All rights reserved.</p>
+          <div class="footer-legal">
+            <button class="footer-legal-btn" id="openPrivacy" data-i18n="footer.privacy">Privacy Policy</button>
+            <span class="footer-legal-sep">&middot;</span>
+            <button class="footer-legal-btn" id="openTerms" data-i18n="footer.terms">Terms &amp; Conditions</button>
+          </div>
+          <p class="footer-made" data-i18n-html="footer.made">Dirancang &amp; Dikembangkan oleh <strong>Nova Adi Saputra</strong></p>
+        </div>
       </div>
     </footer>
 
