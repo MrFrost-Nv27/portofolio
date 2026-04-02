@@ -457,12 +457,18 @@ function applyTheme(theme) {
   }
 
   /* Start after page load so it never competes with FCP/LCP rendering */
+  function deferStart() {
+    if (window.requestIdleCallback) {
+      window.requestIdleCallback(start, { timeout: 200 });
+    } else {
+      setTimeout(start, 200);
+    }
+  }
+
   if (document.readyState === 'complete') {
-    (window.requestIdleCallback || setTimeout)(start, 200);
+    deferStart();
   } else {
-    window.addEventListener('load', function () {
-      (window.requestIdleCallback || setTimeout)(start, 200);
-    }, { once: true });
+    window.addEventListener('load', deferStart, { once: true });
   }
 
   window.addEventListener('resize', () => {

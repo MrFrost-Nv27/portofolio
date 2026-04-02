@@ -142,7 +142,7 @@ main {
    UTILITIES
    ============================================== */
 .container {
-  max-width: 1180px;
+  max-width: 1320px;
   margin: 0 auto;
   padding: 0 28px;
 }
@@ -325,7 +325,7 @@ main {
 .nav-inner {
   pointer-events: all;
   width: 100%;
-  max-width: 1180px;
+  max-width: 1320px;
   margin: 0 auto;
   padding: 0 28px;
   height: 100%;
@@ -345,7 +345,7 @@ main {
     transform     0.42s var(--ease);
 }
 .navbar.scrolled .nav-inner {
-  max-width: min(1040px, calc(100% - 40px));
+  max-width: min(1180px, calc(100% - 40px));
   height: 54px;
   padding: 0 20px;
   background: var(--bg-nav);
