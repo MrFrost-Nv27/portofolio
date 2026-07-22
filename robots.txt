@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://frostdev.my.id/sitemap.xml
