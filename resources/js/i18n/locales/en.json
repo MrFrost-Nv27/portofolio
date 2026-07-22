@@ -1,0 +1,202 @@
+{
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "👋 Hello, I'm",
+    "role": { "prefix": "I'm a" },
+    "roles": ["Full Stack Developer", "Web Developer", "Backend Engineer", "Freelancer Since 2020", "Problem Solver"],
+    "desc": "A passionate developer who loves building beautiful, functional, and meaningful digital experiences. Ready to collaborate to bring creative ideas to life.",
+    "cta": { "projects": "View Projects", "contact": "Contact Me" },
+    "scroll": "Scroll"
+  },
+  "about": {
+    "tag": "About Me",
+    "title": "Getting to Know",
+    "titleHl": "Me Better",
+    "badge": "Dev",
+    "h3": "Who Am I?",
+    "stat": { "years": "Years of<br/>Experience", "projects": "Projects<br/>Completed", "clients": "Programming<br/>Languages" },
+    "cv": "Download CV"
+  },
+  "skills": {
+    "tag": "Skills",
+    "title": "Technologies I",
+    "titleHl": "Master"
+  },
+  "projects": {
+    "tag": "Portfolio",
+    "title": "Featured",
+    "titleHl": "Projects",
+    "note": "Click any project card to view details, screenshots (if available), and optional live/repository links."
+  },
+  "filter": {
+    "all": "All",
+    "web": "Web App",
+    "mobile": "Mobile",
+    "ai": "AI"
+  },
+  "contact": {
+    "tag": "Contact",
+    "title": "Let's",
+    "titleHl": "Collaborate",
+    "lead": "Have an interesting project or want to talk about tech? Don't hesitate to reach out!"
+  },
+  "ci": {
+    "whatsapp": { "label": "WhatsApp" },
+    "email": { "label": "Email" },
+    "location": { "label": "Location" }
+  },
+  "form": {
+    "name": "Full Name",
+    "email": "Email Address",
+    "service": "Type of Service",
+    "service_web": "Web Development",
+    "service_mobile": "Mobile Development",
+    "service_backend": "Backend / API",
+    "service_ai": "AI / Machine Learning",
+    "service_consult": "Technical Consultation",
+    "service_other": "Other",
+    "message": "Message / Project Description",
+    "send": "Send Message",
+    "sending": "Sending…",
+    "sent": "Message Sent!",
+    "required": "Required"
+  },
+  "modal": {
+    "live": "Live / Demo",
+    "repo": "Repository",
+    "noImage": "No screenshot available for this project yet."
+  },
+  "footer": {
+    "tagline": "Full Stack Developer — Building scalable, reliable, and impactful digital solutions.",
+    "col": { "nav": "Navigation", "contact": "Contact" },
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "made": "Designed &amp; Developed by <strong>Nova Adi Saputra</strong>",
+    "copy": "© 2026 Nova Adi Saputra. All rights reserved."
+  },
+  "legal": {
+    "privacy": {
+      "title": "Privacy Policy",
+      "updated": "Last updated: April 2, 2026",
+      "effective": "Effective from: January 1, 2024",
+      "intro": "This Privacy Policy explains how Nova Adi Saputra (\"I\", \"we\") collects, uses, and protects the information you provide when visiting this portfolio at <strong>frostdev.my.id</strong>.",
+      "sections": [
+        {
+          "title": "Information We Collect",
+          "items": [
+            "Anonymous analytics data via Google Analytics (Google Tag Manager ID: G-VN0QKEYW7Y) — such as pages visited, visit duration, and device information.",
+            "Information you submit through the contact form: your name, type of service requested, and message. This data is stored in the system and forwarded to my WhatsApp.",
+            "Cookies from third-party services (Google Analytics, Iubenda Cookie Consent) for analytics and legal compliance purposes."
+          ]
+        },
+        {
+          "title": "How We Use Information",
+          "items": [
+            "Understanding how visitors interact with the portfolio to improve content quality.",
+            "Responding to inquiries or collaboration requests you submit.",
+            "Ensuring compliance with applicable privacy regulations (GDPR, Indonesian PDP Law)."
+          ]
+        },
+        {
+          "title": "Cookies & Tracking",
+          "body": "This website uses technical and analytics cookies. You can manage your cookie preferences via the consent banner that appears on your first visit. Analytics cookies are used anonymously and do not personally identify you."
+        },
+        {
+          "title": "Third-Party Services",
+          "items": [
+            "<strong>Google Analytics</strong> — anonymous visit analytics. Google's policy: <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\">policies.google.com/privacy</a>",
+            "<strong>Iubenda</strong> — cookie consent management in compliance with GDPR.",
+            "<strong>WhatsApp</strong> — contact form message delivery per Meta's policies.",
+            "<strong>Google Fonts & Cloudflare CDN</strong> — for typography assets and site performance."
+          ]
+        },
+        {
+          "title": "Data Security",
+          "body": "I apply reasonable security measures to protect your information. However, no method of internet transmission or electronic storage is 100% secure."
+        },
+        {
+          "title": "Your Rights",
+          "items": [
+            "Access, update, or request deletion of your personal information.",
+            "Opt out of analytics data processing by disabling analytics cookies.",
+            "Submit questions or complaints regarding privacy via the email below."
+          ]
+        },
+        {
+          "title": "Contact",
+          "body": "For questions regarding this privacy policy, contact: <a href=\"mailto:novaadisaputra.nasss@gmail.com\">novaadisaputra.nasss@gmail.com</a>"
+        }
+      ]
+    },
+    "terms": {
+      "title": "Terms & Conditions",
+      "updated": "Last updated: April 2, 2026",
+      "effective": "Effective from: January 1, 2024",
+      "intro": "These Terms and Conditions govern your use of Nova Adi Saputra's portfolio website at <strong>frostdev.my.id</strong>. By accessing this site, you are deemed to agree to the following terms.",
+      "sections": [
+        {
+          "title": "Website Content",
+          "body": "All content on this website — including text, code, design, images, and featured projects — is the exclusive property of Nova Adi Saputra unless otherwise stated.",
+          "items": [
+            "Featured projects are real work results, published with client consent or are personal projects.",
+            "Client logos, brand names, and visual identities appearing in project screenshots belong to their respective clients.",
+            "You may not copy, distribute, or use this content without written permission."
+          ]
+        },
+        {
+          "title": "Permitted Use",
+          "items": [
+            "Browsing the portfolio for professional evaluation or recruitment purposes.",
+            "Downloading the available CV for review or job application purposes.",
+            "Contacting me via the contact form or official channels for collaboration."
+          ]
+        },
+        {
+          "title": "Contact Form & Communications",
+          "body": "Messages sent through the contact form are forwarded directly to my WhatsApp. By submitting the form, you agree that:",
+          "items": [
+            "The information you provide is accurate and not misleading.",
+            "You will not send spam, offensive, or harmful messages.",
+            "I reserve the right not to respond to irrelevant or unprofessional messages."
+          ]
+        },
+        {
+          "title": "Freelance Services",
+          "body": "This website serves as a portfolio presentation and initial point of contact for freelance projects. Specific terms for each project are governed by a separate agreement between the client and myself, covering:",
+          "items": [
+            "Mutually agreed scope of work, timeline, and deliverables.",
+            "Payment structure, methods, and schedule as outlined in the invoice or contract.",
+            "Intellectual property rights over deliverables, transferred upon full payment.",
+            "Revision, maintenance, and post-delivery support terms."
+          ]
+        },
+        {
+          "title": "Disclaimer",
+          "items": [
+            "This website is provided \"as is\" without warranty of availability or freedom from errors.",
+            "I am not liable for any damage or loss arising from the use of information on this website.",
+            "Links to external sites (project demos, repositories) are provided for convenience; I am not responsible for third-party content.",
+            "Portfolio content is dynamic and may change at any time without prior notice."
+          ]
+        },
+        {
+          "title": "Governing Law",
+          "body": "These terms are governed by applicable laws in Indonesia. Any disputes arising will first be resolved through deliberation and consensus."
+        },
+        {
+          "title": "Changes to Terms",
+          "body": "I reserve the right to update these Terms & Conditions at any time. The latest version is always accessible on this page with the update date noted."
+        },
+        {
+          "title": "Contact",
+          "body": "Questions regarding these Terms & Conditions may be sent to: <a href=\"mailto:novaadisaputra.nasss@gmail.com\">novaadisaputra.nasss@gmail.com</a>"
+        }
+      ]
+    }
+  }
+}

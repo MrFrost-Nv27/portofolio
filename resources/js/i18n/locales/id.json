@@ -1,0 +1,202 @@
+{
+  "nav": {
+    "about": "Tentang",
+    "skills": "Keahlian",
+    "projects": "Proyek",
+    "contact": "Kontak"
+  },
+  "hero": {
+    "greeting": "👋 Halo, saya",
+    "role": { "prefix": "Saya seorang" },
+    "roles": ["Full Stack Developer", "Web Developer", "Backend Engineer", "Freelancer Sejak 2020", "Pemecah Masalah"],
+    "desc": "Passionate developer yang suka membangun pengalaman digital yang indah, fungsional, dan bermakna. Siap berkolaborasi untuk mewujudkan ide-ide kreatif menjadi kenyataan.",
+    "cta": { "projects": "Lihat Proyek", "contact": "Hubungi Saya" },
+    "scroll": "Scroll"
+  },
+  "about": {
+    "tag": "Tentang Saya",
+    "title": "Mengenal Saya",
+    "titleHl": "Lebih Dalam",
+    "badge": "Dev",
+    "h3": "Siapa Saya?",
+    "stat": { "years": "Tahun<br/>Pengalaman", "projects": "Proyek<br/>Selesai", "clients": "Bahasa<br/>Pemrograman" },
+    "cv": "Download CV"
+  },
+  "skills": {
+    "tag": "Keahlian",
+    "title": "Teknologi yang",
+    "titleHl": "Saya Kuasai"
+  },
+  "projects": {
+    "tag": "Portofolio",
+    "title": "Proyek",
+    "titleHl": "Unggulan",
+    "note": "Klik kartu proyek untuk melihat detail, screenshot (jika tersedia), serta tautan live dan repository."
+  },
+  "filter": {
+    "all": "Semua",
+    "web": "Web App",
+    "mobile": "Mobile",
+    "ai": "AI"
+  },
+  "contact": {
+    "tag": "Kontak",
+    "title": "Mari",
+    "titleHl": "Berkolaborasi",
+    "lead": "Punya proyek menarik atau ingin ngobrol seputar teknologi? Jangan ragu untuk menghubungi saya!"
+  },
+  "ci": {
+    "whatsapp": { "label": "WhatsApp" },
+    "email": { "label": "Email" },
+    "location": { "label": "Lokasi" }
+  },
+  "form": {
+    "name": "Nama Lengkap",
+    "email": "Alamat Email",
+    "service": "Jenis Layanan",
+    "service_web": "Web Development",
+    "service_mobile": "Mobile Development",
+    "service_backend": "Backend / API",
+    "service_ai": "AI / Machine Learning",
+    "service_consult": "Konsultasi Teknis",
+    "service_other": "Lainnya",
+    "message": "Pesan / Deskripsi Proyek",
+    "send": "Kirim Pesan",
+    "sending": "Mengirim…",
+    "sent": "Pesan Terkirim!",
+    "required": "Wajib diisi"
+  },
+  "modal": {
+    "live": "Live / Demo",
+    "repo": "Repository",
+    "noImage": "Belum ada screenshot untuk proyek ini."
+  },
+  "footer": {
+    "tagline": "Full Stack Developer — Membangun solusi digital yang skalabel, handal, dan berdampak.",
+    "col": { "nav": "Navigasi", "contact": "Kontak" },
+    "privacy": "Kebijakan Privasi",
+    "terms": "Syarat & Ketentuan",
+    "made": "Dirancang &amp; Dikembangkan oleh <strong>Nova Adi Saputra</strong>",
+    "copy": "© 2026 Nova Adi Saputra. All rights reserved."
+  },
+  "legal": {
+    "privacy": {
+      "title": "Kebijakan Privasi",
+      "updated": "Terakhir diperbarui: 2 April 2026",
+      "effective": "Berlaku sejak: 1 Januari 2024",
+      "intro": "Kebijakan Privasi ini menjelaskan bagaimana Nova Adi Saputra (\"saya\", \"kami\") mengumpulkan, menggunakan, dan melindungi informasi yang Anda berikan saat mengunjungi portfolio ini di <strong>frostdev.my.id</strong>.",
+      "sections": [
+        {
+          "title": "Informasi yang Dikumpulkan",
+          "items": [
+            "Data analitik anonim melalui Google Analytics (Google Tag Manager ID: G-VN0QKEYW7Y) — seperti halaman yang dikunjungi, durasi kunjungan, dan perangkat yang digunakan.",
+            "Informasi yang Anda kirim melalui formulir kontak: nama, jenis layanan yang diminati, dan pesan. Data ini disimpan pada sistem dan diteruskan ke WhatsApp saya.",
+            "Cookie dari layanan pihak ketiga (Google Analytics, Iubenda Cookie Consent) untuk analitik dan kepatuhan hukum."
+          ]
+        },
+        {
+          "title": "Penggunaan Informasi",
+          "items": [
+            "Memahami cara pengunjung berinteraksi dengan portfolio untuk meningkatkan kualitas konten.",
+            "Merespons pertanyaan atau permintaan kolaborasi yang Anda kirimkan.",
+            "Memastikan kepatuhan terhadap regulasi privasi yang berlaku (GDPR, UU PDP Indonesia)."
+          ]
+        },
+        {
+          "title": "Cookie & Pelacakan",
+          "body": "Website ini menggunakan cookie teknis dan analitik. Anda dapat mengelola preferensi cookie melalui banner consent yang muncul saat pertama kali mengunjungi situs. Cookie analytics digunakan secara anonim dan tidak mengidentifikasi Anda secara personal."
+        },
+        {
+          "title": "Layanan Pihak Ketiga",
+          "items": [
+            "<strong>Google Analytics</strong> — analitik kunjungan anonim. Kebijakan Google: <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\">policies.google.com/privacy</a>",
+            "<strong>Iubenda</strong> — manajemen cookie consent sesuai regulasi GDPR.",
+            "<strong>WhatsApp</strong> — pengiriman pesan dari formulir kontak sesuai kebijakan Meta.",
+            "<strong>Google Fonts & Cloudflare CDN</strong> — untuk aset tipografi dan performa situs."
+          ]
+        },
+        {
+          "title": "Keamanan Data",
+          "body": "Saya menerapkan langkah-langkah keamanan yang wajar untuk melindungi informasi Anda. Namun, tidak ada metode transmisi internet atau penyimpanan elektronik yang 100% aman."
+        },
+        {
+          "title": "Hak Anda",
+          "items": [
+            "Mengakses, memperbarui, atau meminta penghapusan informasi pribadi Anda.",
+            "Menolak pemrosesan data analitik dengan menonaktifkan cookie analytics.",
+            "Mengajukan pertanyaan atau keluhan terkait privasi melalui email di bawah ini."
+          ]
+        },
+        {
+          "title": "Kontak",
+          "body": "Untuk pertanyaan terkait kebijakan privasi ini, hubungi: <a href=\"mailto:novaadisaputra.nasss@gmail.com\">novaadisaputra.nasss@gmail.com</a>"
+        }
+      ]
+    },
+    "terms": {
+      "title": "Syarat & Ketentuan",
+      "updated": "Terakhir diperbarui: 2 April 2026",
+      "effective": "Berlaku sejak: 1 Januari 2024",
+      "intro": "Syarat dan Ketentuan ini mengatur penggunaan Anda terhadap website portfolio Nova Adi Saputra di <strong>frostdev.my.id</strong>. Dengan mengakses situs ini, Anda dianggap menyetujui ketentuan berikut.",
+      "sections": [
+        {
+          "title": "Konten Website",
+          "body": "Seluruh konten di website ini — termasuk teks, kode, desain, gambar, dan proyek yang ditampilkan — adalah milik eksklusif Nova Adi Saputra kecuali dinyatakan lain.",
+          "items": [
+            "Proyek yang ditampilkan merupakan hasil kerja nyata dan dipublikasikan seijin klien atau merupakan proyek pribadi.",
+            "Logo, nama brand, dan identitas visual klien yang muncul dalam screenshot proyek adalah milik masing-masing klien.",
+            "Anda tidak diperkenankan menyalin, mendistribusikan, atau menggunakan konten ini tanpa izin tertulis."
+          ]
+        },
+        {
+          "title": "Penggunaan yang Diizinkan",
+          "items": [
+            "Menjelajahi portfolio untuk keperluan evaluasi profesional atau rekrutmen.",
+            "Mengunduh CV yang tersedia untuk keperluan review atau lamaran pekerjaan.",
+            "Menghubungi saya melalui formulir kontak atau saluran resmi untuk kolaborasi."
+          ]
+        },
+        {
+          "title": "Formulir Kontak & Komunikasi",
+          "body": "Pesan yang dikirim melalui formulir kontak diteruskan langsung ke WhatsApp saya. Dengan mengirim formulir, Anda menyetujui:",
+          "items": [
+            "Informasi yang Anda berikan akurat dan tidak menyesatkan.",
+            "Anda tidak akan mengirim pesan spam, menyinggung, atau bersifat berbahaya.",
+            "Saya berhak tidak merespons pesan yang tidak relevan atau tidak profesional."
+          ]
+        },
+        {
+          "title": "Layanan Freelance",
+          "body": "Website ini berfungsi sebagai sarana presentasi portofolio dan penghubung awal untuk proyek freelance. Ketentuan spesifik untuk setiap proyek diatur dalam perjanjian terpisah antara klien dan saya, mencakup:",
+          "items": [
+            "Scope of work, timeline, dan deliverables yang disepakati bersama.",
+            "Struktur pembayaran, metode, dan jadwal yang tertera dalam invoice atau kontrak.",
+            "Hak kekayaan intelektual atas hasil kerja yang diserahkan setelah pembayaran lunas.",
+            "Ketentuan revisi, maintenance, dan dukungan pasca-pengiriman."
+          ]
+        },
+        {
+          "title": "Penafian (Disclaimer)",
+          "items": [
+            "Website ini disediakan \"apa adanya\" tanpa jaminan ketersediaan atau bebas dari kesalahan.",
+            "Saya tidak bertanggung jawab atas kerusakan atau kerugian yang timbul dari penggunaan informasi di website ini.",
+            "Tautan ke situs eksternal (demo proyek, repo) disediakan untuk kemudahan; saya tidak bertanggung jawab atas konten pihak ketiga.",
+            "Isi portfolio bersifat dinamis dan dapat berubah sewaktu-waktu tanpa pemberitahuan sebelumnya."
+          ]
+        },
+        {
+          "title": "Hukum yang Berlaku",
+          "body": "Ketentuan ini diatur oleh hukum yang berlaku di Indonesia. Segala sengketa yang timbul akan diselesaikan secara musyawarah mufakat terlebih dahulu."
+        },
+        {
+          "title": "Perubahan Ketentuan",
+          "body": "Saya berhak memperbarui Syarat & Ketentuan ini sewaktu-waktu. Versi terbaru selalu dapat diakses di halaman ini dengan tanggal pembaruan yang tercantum."
+        },
+        {
+          "title": "Kontak",
+          "body": "Pertanyaan mengenai Syarat & Ketentuan ini dapat dikirim ke: <a href=\"mailto:novaadisaputra.nasss@gmail.com\">novaadisaputra.nasss@gmail.com</a>"
+        }
+      ]
+    }
+  }
+}
