@@ -3,7 +3,6 @@ package main
 import (
 	"bufio"
 	"context"
-	"database/sql"
 	"flag"
 	"fmt"
 	"io"
@@ -13,6 +12,7 @@ import (
 	"strings"
 
 	"golang.org/x/term"
+	"gorm.io/gorm"
 
 	"portofolio/internal/auth"
 	"portofolio/internal/config"
@@ -31,28 +31,27 @@ func main() {
 	cfg := config.Load()
 	ctx := context.Background()
 
-	conn, err := db.Open(cfg.DBPath)
+	gdb, err := db.Open(cfg)
 	if err != nil {
 		log.Fatalf("open db: %v", err)
 	}
-	defer conn.Close()
 
-	if err := db.RunMigrations(conn); err != nil {
+	if err := db.Migrate(gdb); err != nil {
 		log.Fatalf("run migrations: %v", err)
 	}
 
 	if *createAdmin {
-		runCreateAdmin(ctx, conn, *adminUsername)
+		runCreateAdmin(ctx, gdb, *adminUsername)
 		return
 	}
 
-	runSeedContent(ctx, conn, cfg, *assetsDir)
+	runSeedContent(ctx, gdb, cfg, *assetsDir)
 }
 
-func runSeedContent(ctx context.Context, conn *sql.DB, cfg config.Config, assetsDir string) {
-	profileRepo := repository.NewProfileRepo(conn)
-	skillsRepo := repository.NewSkillsRepo(conn)
-	projectsRepo := repository.NewProjectsRepo(conn)
+func runSeedContent(ctx context.Context, gdb *gorm.DB, cfg config.Config, assetsDir string) {
+	profileRepo := repository.NewProfileRepo(gdb)
+	skillsRepo := repository.NewSkillsRepo(gdb)
+	projectsRepo := repository.NewProjectsRepo(gdb)
 
 	exists, err := profileRepo.Exists(ctx)
 	if err != nil {
@@ -175,8 +174,8 @@ func runSeedContent(ctx context.Context, conn *sql.DB, cfg config.Config, assets
 	log.Println("seed complete — verify row counts above against the legacy site before trusting this migration")
 }
 
-func runCreateAdmin(ctx context.Context, conn *sql.DB, username string) {
-	authRepo := repository.NewAuthRepo(conn)
+func runCreateAdmin(ctx context.Context, gdb *gorm.DB, username string) {
+	authRepo := repository.NewAuthRepo(gdb)
 
 	exists, err := authRepo.AnyUserExists(ctx)
 	if err != nil {

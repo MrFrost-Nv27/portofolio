@@ -76,7 +76,14 @@ async function onSubmit() {
     <UFormField :label="t('form.message')" name="message" required>
       <UTextarea v-model="state.message" :rows="5" class="w-full" />
     </UFormField>
-    <UButton type="submit" block :loading="sending" icon="i-lucide-send">
+    <UButton
+      type="submit"
+      block
+      :loading="sending"
+      icon="i-lucide-send"
+      class="rounded-full shadow-[var(--glow)]"
+      style="background-image: var(--grad)"
+    >
       {{ sending ? t('form.sending') : t('form.send') }}
     </UButton>
   </UForm>

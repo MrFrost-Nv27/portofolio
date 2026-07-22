@@ -38,7 +38,7 @@ const data = computed(() => tm(`legal.${props.type}`) as unknown as LegalContent
 
         <div v-for="(section, i) in data.sections" :key="section.title" class="space-y-2">
           <h3 class="flex items-center gap-2 font-semibold text-[var(--txt)]">
-            <span class="grid size-6 place-items-center rounded-full bg-[var(--primary)] text-xs text-white">{{ i + 1 }}</span>
+            <span class="grid size-6 place-items-center rounded-full text-xs text-white" style="background-image: var(--grad)">{{ i + 1 }}</span>
             {{ section.title }}
           </h3>
           <p v-if="section.body" v-html="section.body" />

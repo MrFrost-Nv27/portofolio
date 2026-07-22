@@ -2,41 +2,41 @@ package repository
 
 import (
 	"context"
-	"database/sql"
 	"path/filepath"
 	"testing"
 	"time"
 
+	"gorm.io/gorm"
+
+	"portofolio/internal/config"
 	"portofolio/internal/db"
 	"portofolio/internal/models"
 )
 
-func newTestDB(t *testing.T) *sql.DB {
+func newTestDB(t *testing.T) *gorm.DB {
 	t.Helper()
 	dbPath := filepath.Join(t.TempDir(), "test.db")
-	conn, err := db.Open(dbPath)
+	gdb, err := db.Open(config.Config{DBDriver: config.DriverSQLite, DBPath: dbPath})
 	if err != nil {
 		t.Fatalf("open test db: %v", err)
 	}
-	if err := db.RunMigrations(conn); err != nil {
+	if err := db.Migrate(gdb); err != nil {
 		t.Fatalf("run migrations: %v", err)
 	}
-	t.Cleanup(func() { conn.Close() })
-	return conn
+	return gdb
 }
 
 func TestMigrationsIdempotent(t *testing.T) {
 	dbPath := filepath.Join(t.TempDir(), "test.db")
-	conn, err := db.Open(dbPath)
+	gdb, err := db.Open(config.Config{DBDriver: config.DriverSQLite, DBPath: dbPath})
 	if err != nil {
 		t.Fatalf("open test db: %v", err)
 	}
-	defer conn.Close()
 
-	if err := db.RunMigrations(conn); err != nil {
+	if err := db.Migrate(gdb); err != nil {
 		t.Fatalf("first migration run: %v", err)
 	}
-	if err := db.RunMigrations(conn); err != nil {
+	if err := db.Migrate(gdb); err != nil {
 		t.Fatalf("second migration run should be a no-op, got error: %v", err)
 	}
 }
@@ -86,9 +86,10 @@ func TestProfileUpsertAndGet(t *testing.T) {
 }
 
 // TestSkillsListCategoriesAttachesChipsToEveryCategory guards against a
-// regression where taking &categories[i] while still appending to the same
-// slice (before it stopped growing) orphaned chips from earlier categories
-// once append reallocated the backing array.
+// regression (from a pre-GORM hand-written-SQL version of this repo) where
+// taking &categories[i] while still appending to the same slice orphaned
+// chips from earlier categories once append reallocated the backing array.
+// Kept as a regression test since GORM's Preload takes over that job now.
 func TestSkillsListCategoriesAttachesChipsToEveryCategory(t *testing.T) {
 	conn := newTestDB(t)
 	repo := NewSkillsRepo(conn)

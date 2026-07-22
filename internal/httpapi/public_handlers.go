@@ -1,10 +1,11 @@
 package httpapi
 
 import (
-	"encoding/json"
 	"net/http"
 	"strconv"
 	"strings"
+
+	"github.com/gin-gonic/gin"
 
 	"portofolio/internal/models"
 	"portofolio/internal/repository"
@@ -31,59 +32,59 @@ func NewPublicHandlers(
 	}
 }
 
-func (h *PublicHandlers) GetProfile(w http.ResponseWriter, r *http.Request) {
-	profile, err := h.profileRepo.Get(r.Context())
+func (h *PublicHandlers) GetProfile(c *gin.Context) {
+	profile, err := h.profileRepo.Get(c.Request.Context())
 	if err != nil {
-		writeError(w, http.StatusNotFound, "profile not found")
+		writeError(c, http.StatusNotFound, "profile not found")
 		return
 	}
-	writeJSON(w, http.StatusOK, profile)
+	c.JSON(http.StatusOK, profile)
 }
 
-func (h *PublicHandlers) ListSkills(w http.ResponseWriter, r *http.Request) {
-	categories, err := h.skillsRepo.ListCategories(r.Context())
+func (h *PublicHandlers) ListSkills(c *gin.Context) {
+	categories, err := h.skillsRepo.ListCategories(c.Request.Context())
 	if err != nil {
-		writeError(w, http.StatusInternalServerError, "failed to load skills")
+		writeError(c, http.StatusInternalServerError, "failed to load skills")
 		return
 	}
-	writeJSON(w, http.StatusOK, categories)
+	c.JSON(http.StatusOK, categories)
 }
 
-func (h *PublicHandlers) ListProjects(w http.ResponseWriter, r *http.Request) {
-	category := r.URL.Query().Get("category")
-	projects, err := h.projectsRepo.List(r.Context(), repository.ProjectFilter{
+func (h *PublicHandlers) ListProjects(c *gin.Context) {
+	category := c.Query("category")
+	projects, err := h.projectsRepo.List(c.Request.Context(), repository.ProjectFilter{
 		Category:      category,
 		PublishedOnly: true,
 	})
 	if err != nil {
-		writeError(w, http.StatusInternalServerError, "failed to load projects")
+		writeError(c, http.StatusInternalServerError, "failed to load projects")
 		return
 	}
-	writeJSON(w, http.StatusOK, projects)
+	c.JSON(http.StatusOK, projects)
 }
 
-func (h *PublicHandlers) GetProject(w http.ResponseWriter, r *http.Request) {
-	id, err := strconv.ParseInt(r.PathValue("id"), 10, 64)
+func (h *PublicHandlers) GetProject(c *gin.Context) {
+	id, err := strconv.ParseUint(c.Param("id"), 10, 64)
 	if err != nil {
-		writeError(w, http.StatusBadRequest, "invalid project id")
+		writeError(c, http.StatusBadRequest, "invalid project id")
 		return
 	}
-	project, err := h.projectsRepo.Get(r.Context(), id)
+	project, err := h.projectsRepo.Get(c.Request.Context(), uint(id))
 	if err != nil {
-		writeError(w, http.StatusNotFound, "project not found")
+		writeError(c, http.StatusNotFound, "project not found")
 		return
 	}
 	if !project.Published {
-		writeError(w, http.StatusNotFound, "project not found")
+		writeError(c, http.StatusNotFound, "project not found")
 		return
 	}
-	writeJSON(w, http.StatusOK, project)
+	c.JSON(http.StatusOK, project)
 }
 
-func (h *PublicHandlers) SubmitContact(w http.ResponseWriter, r *http.Request) {
+func (h *PublicHandlers) SubmitContact(c *gin.Context) {
 	var req ContactRequest
-	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
-		writeError(w, http.StatusBadRequest, "invalid request body")
+	if err := c.ShouldBindJSON(&req); err != nil {
+		writeError(c, http.StatusBadRequest, "invalid request body")
 		return
 	}
 
@@ -91,7 +92,7 @@ func (h *PublicHandlers) SubmitContact(w http.ResponseWriter, r *http.Request) {
 	req.Service = strings.TrimSpace(req.Service)
 	req.Message = strings.TrimSpace(req.Message)
 	if req.Name == "" || req.Service == "" || req.Message == "" {
-		writeError(w, http.StatusBadRequest, "name, service, and message are required")
+		writeError(c, http.StatusBadRequest, "name, service, and message are required")
 		return
 	}
 	if req.Locale != "en" {
@@ -104,26 +105,15 @@ func (h *PublicHandlers) SubmitContact(w http.ResponseWriter, r *http.Request) {
 		Service:   req.Service,
 		Message:   req.Message,
 		Locale:    req.Locale,
-		IPAddress: clientIP(r),
-		UserAgent: r.UserAgent(),
+		IPAddress: c.ClientIP(),
+		UserAgent: c.Request.UserAgent(),
 	}
 
-	id, err := h.contactRepo.Create(r.Context(), submission)
+	id, err := h.contactRepo.Create(c.Request.Context(), submission)
 	if err != nil {
-		writeError(w, http.StatusInternalServerError, "failed to save submission")
+		writeError(c, http.StatusInternalServerError, "failed to save submission")
 		return
 	}
 
-	writeJSON(w, http.StatusCreated, map[string]any{"id": id})
-}
-
-func clientIP(r *http.Request) string {
-	if fwd := r.Header.Get("X-Forwarded-For"); fwd != "" {
-		return strings.TrimSpace(strings.Split(fwd, ",")[0])
-	}
-	host := r.RemoteAddr
-	if idx := strings.LastIndex(host, ":"); idx != -1 {
-		return host[:idx]
-	}
-	return host
+	c.JSON(http.StatusCreated, gin.H{"id": id})
 }

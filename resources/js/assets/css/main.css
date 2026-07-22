@@ -2,102 +2,118 @@
 @import "@nuxt/ui";
 @import "./animations.css";
 
-/* Legacy breakpoints ported 1:1 from css/style.css so every existing
-   @media rule has a direct Tailwind equivalent during the parity pass. */
+/* Breakpoints kept from the original static-site design so layout
+   decisions stay consistent across the rewrite. */
 @theme {
   --breakpoint-sm: 480px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1440px;
 
-  /* Brand colors exposed as Tailwind utilities (bg-primary, text-cyan, ...)
-     for hand-built sections, alongside the raw CSS vars below which the
-     canvas/cursor composables read directly via getComputedStyle(). */
-  --color-primary: #7c6fff;
-  --color-primary-2: #6558e8;
-  --color-cyan: #0099cc;
-  --color-accent: #e05555;
-  --color-green: #2ca882;
-}
-
-/* Legacy :root / .dark custom-property system, ported verbatim from
-   css/style.css so hand-built components (canvas, cursor, animations)
-   keep working exactly as before. Nuxt UI's own --ui-* tokens are
-   separate and overridden just below to match the brand. */
-/* Applied to <html> only on non-touch devices while CustomCursor.vue is mounted. */
-.cursor-none,
-.cursor-none * {
-  cursor: none !important;
+  /* Bold multi-color brand palette exposed as Tailwind utilities
+     (bg-primary, text-secondary, ...) alongside the raw CSS vars below,
+     which JS-driven code (canvas particles) reads via getComputedStyle(). */
+  --color-primary: #6366f1;
+  --color-secondary: #d946ef;
+  --color-tertiary: #06b6d4;
+  --color-warm: #f59e0b;
 }
 
 @layer base {
   :root {
-    --bg: #f3f4f8;
-    --bg-2: #eaecf3;
+    --bg: #f8f7fc;
+    --bg-2: #f0eef8;
     --bg-card: #ffffff;
-    --glass: rgba(0, 0, 0, 0.03);
-    --glass-b: rgba(0, 0, 0, 0.09);
-    --primary: #7c6fff;
-    --primary-2: #6558e8;
-    --cyan: #0099cc;
-    --accent: #e05555;
-    --green: #2ca882;
-    --grad: linear-gradient(135deg, #7c6fff, #00b4d8);
-    --grad-text: linear-gradient(135deg, #7c6fff 0%, #0099cc 50%, #2ca882 100%);
-    --txt: #0d1117;
-    --txt-2: #4a5568;
-    --txt-3: #a0aec0;
-    --bg-nav: rgba(243, 244, 248, 0.88);
-    --bg-nav-mob: rgba(243, 244, 248, 0.98);
-    --bg-overlay: rgba(243, 244, 248, 0.8);
-    --r: 16px;
-    --r-sm: 10px;
+    --glass: rgba(99, 102, 241, 0.05);
+    --glass-b: rgba(99, 102, 241, 0.14);
+
+    /* Glassmorphism card surface — frosted, semi-transparent, blurred. */
+    --glass-card-bg: rgba(255, 255, 255, 0.55);
+    --glass-card-border: rgba(255, 255, 255, 0.6);
+    --glass-card-shadow: 0 8px 40px rgba(99, 102, 241, 0.14);
+
+    --primary: #6366f1;
+    --primary-2: #4f46e5;
+    --secondary: #d946ef;
+    --tertiary: #06b6d4;
+    --warm: #f59e0b;
+
+    --grad: linear-gradient(135deg, #6366f1, #d946ef);
+    --grad-warm: linear-gradient(135deg, #f59e0b, #d946ef);
+    --grad-text: linear-gradient(120deg, #6366f1 0%, #d946ef 55%, #06b6d4 100%);
+    --grad-mesh: radial-gradient(at 20% 20%, rgba(99, 102, 241, 0.25) 0px, transparent 50%),
+      radial-gradient(at 80% 15%, rgba(217, 70, 239, 0.22) 0px, transparent 50%),
+      radial-gradient(at 50% 80%, rgba(6, 182, 212, 0.2) 0px, transparent 50%);
+
+    --txt: #14121f;
+    --txt-2: #55536b;
+    --txt-3: #9d99b5;
+    --bg-nav: rgba(248, 247, 252, 0.75);
+    --bg-nav-mob: rgba(248, 247, 252, 0.97);
+    --bg-overlay: rgba(248, 247, 252, 0.8);
+    --r: 20px;
+    --r-sm: 12px;
     --r-pill: 9999px;
     --ease: cubic-bezier(0.4, 0, 0.2, 1);
     --trans: all 0.3s var(--ease);
-    --shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
-    --glow: 0 0 40px rgba(124, 111, 255, 0.12);
-    --nav-h: 70px;
-    --cursor-dot: #1a1a2e;
-    --cursor-dot-hover: var(--primary-2);
-    --cursor-dot-press: var(--primary);
-    --cursor-ring: rgba(101, 88, 232, 0.5);
-    --cursor-ring-hover: rgba(101, 88, 232, 0.22);
-    --cursor-ring-fill: rgba(101, 88, 232, 0.06);
-    --cursor-ring-press: rgba(0, 153, 204, 0.45);
-    --cursor-ring-pfill: rgba(0, 153, 204, 0.05);
+    --shadow: 0 8px 40px rgba(99, 102, 241, 0.16);
+    --glow: 0 0 60px rgba(217, 70, 239, 0.2);
+    --nav-h: 72px;
 
-    /* Brand override for Nuxt UI's own semantic tokens */
-    --ui-primary: #7c6fff;
+    --ui-primary: #6366f1;
+    --ui-secondary: #d946ef;
   }
 
   .dark {
-    --bg: #09090f;
-    --bg-2: #111119;
-    --bg-card: #13131c;
-    --glass: rgba(255, 255, 255, 0.04);
-    --glass-b: rgba(255, 255, 255, 0.07);
-    --primary-2: #a49aff;
-    --cyan: #00d4ff;
-    --accent: #ff6b6b;
-    --green: #55efc4;
-    --grad: linear-gradient(135deg, #7c6fff, #00d4ff);
-    --grad-text: linear-gradient(135deg, #a78bfa 0%, #22d3ee 50%, #6ee7b7 100%);
-    --txt: #f0f4ff;
-    --txt-2: #8892a0;
-    --txt-3: #3d4a5a;
-    --bg-nav: rgba(9, 9, 15, 0.82);
-    --bg-nav-mob: rgba(9, 9, 15, 0.97);
-    --bg-overlay: rgba(9, 9, 15, 0.72);
-    --shadow: 0 8px 40px rgba(0, 0, 0, 0.45);
-    --glow: 0 0 40px rgba(124, 111, 255, 0.18);
-    --cursor-dot: #ffffff;
-    --cursor-ring: rgba(124, 111, 255, 0.55);
-    --cursor-ring-hover: rgba(124, 111, 255, 0.25);
-    --cursor-ring-fill: rgba(124, 111, 255, 0.07);
-    --cursor-ring-press: rgba(0, 212, 255, 0.5);
-    --cursor-ring-pfill: rgba(0, 212, 255, 0.05);
+    --bg: #08070d;
+    --bg-2: #0f0e18;
+    --bg-card: #15131f;
+    --glass: rgba(129, 140, 248, 0.06);
+    --glass-b: rgba(129, 140, 248, 0.16);
 
-    --ui-primary: #a49aff;
+    --glass-card-bg: rgba(255, 255, 255, 0.05);
+    --glass-card-border: rgba(255, 255, 255, 0.12);
+    --glass-card-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+
+    --primary: #818cf8;
+    --primary-2: #a5b4fc;
+    --secondary: #e879f9;
+    --tertiary: #22d3ee;
+    --warm: #fbbf24;
+
+    --grad: linear-gradient(135deg, #818cf8, #e879f9);
+    --grad-warm: linear-gradient(135deg, #fbbf24, #e879f9);
+    --grad-text: linear-gradient(120deg, #a5b4fc 0%, #f0abfc 55%, #67e8f9 100%);
+    --grad-mesh: radial-gradient(at 20% 20%, rgba(129, 140, 248, 0.3) 0px, transparent 50%),
+      radial-gradient(at 80% 15%, rgba(232, 121, 249, 0.25) 0px, transparent 50%),
+      radial-gradient(at 50% 80%, rgba(34, 211, 238, 0.22) 0px, transparent 50%);
+
+    --txt: #f5f3fc;
+    --txt-2: #aca8c8;
+    --txt-3: #55516e;
+    --bg-nav: rgba(8, 7, 13, 0.7);
+    --bg-nav-mob: rgba(8, 7, 13, 0.97);
+    --bg-overlay: rgba(8, 7, 13, 0.75);
+    --shadow: 0 8px 40px rgba(0, 0, 0, 0.55);
+    --glow: 0 0 60px rgba(232, 121, 249, 0.28);
+
+    --ui-primary: #818cf8;
+    --ui-secondary: #e879f9;
+  }
+
+  /* Reusable frosted-glass card surface used across every section. */
+  .glass-card {
+    background: var(--glass-card-bg);
+    border: 1px solid var(--glass-card-border);
+    box-shadow: var(--glass-card-shadow);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .grad-text {
+    background-image: var(--grad-text);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
   }
 }

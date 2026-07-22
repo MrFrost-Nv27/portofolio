@@ -31,8 +31,19 @@ const lightboxIndex = ref<number | null>(null)
           </span>
         </div>
         <div class="flex gap-2 pt-1">
-          <UButton v-if="project.url_demo" :to="project.url_demo" target="_blank" icon="i-lucide-globe">{{ t('modal.live') }}</UButton>
-          <UButton v-if="project.url_repo" :to="project.url_repo" target="_blank" variant="ghost" icon="simple-icons:github">{{ t('modal.repo') }}</UButton>
+          <UButton
+            v-if="project.url_demo"
+            :to="project.url_demo"
+            target="_blank"
+            icon="i-lucide-globe"
+            class="rounded-full px-5 shadow-[var(--glow)]"
+            style="background-image: var(--grad)"
+          >
+            {{ t('modal.live') }}
+          </UButton>
+          <UButton v-if="project.url_repo" :to="project.url_repo" target="_blank" variant="ghost" icon="simple-icons:github" class="rounded-full px-5">
+            {{ t('modal.repo') }}
+          </UButton>
         </div>
       </div>
     </template>

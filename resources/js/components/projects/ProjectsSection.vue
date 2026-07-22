@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useContentStore } from '@/stores/content'
+import { publicApi } from '@/api/public'
 import type { Project } from '@/types'
 import { categoryKey } from '@/utils/projectCategory'
 import ProjectCard from './ProjectCard.vue'
@@ -27,9 +28,17 @@ const filteredProjects = computed(() => {
 const selected = ref<Project | null>(null)
 const modalOpen = ref(false)
 
-function openProject(p: Project) {
+async function openProject(p: Project) {
+  // The list endpoint omits gallery images to keep the grid payload small
+  // (see internal/httpapi ListProjects) — fetch the full detail so the
+  // modal's carousel actually has screenshots to show.
   selected.value = p
   modalOpen.value = true
+  try {
+    selected.value = await publicApi.getProject(p.id)
+  } catch {
+    // keep the list-item fallback (no gallery) if the detail fetch fails
+  }
 }
 </script>
 
@@ -37,10 +46,10 @@ function openProject(p: Project) {
   <section id="projects" class="py-28" aria-labelledby="projects-heading">
     <div class="mx-auto max-w-[1180px] px-7">
       <div class="mb-10 text-center">
-        <span class="text-sm font-semibold tracking-wide text-[var(--primary)] uppercase">{{ t('projects.tag') }}</span>
+        <span class="text-sm font-semibold tracking-wide text-primary uppercase">{{ t('projects.tag') }}</span>
         <h2 id="projects-heading" class="mt-2 text-3xl font-bold sm:text-4xl">
           {{ t('projects.title') }}
-          <span class="bg-clip-text text-transparent" style="background-image: var(--grad-text)">{{ t('projects.titleHl') }}</span>
+          <span class="grad-text">{{ t('projects.titleHl') }}</span>
         </h2>
       </div>
 
@@ -48,11 +57,11 @@ function openProject(p: Project) {
         <button
           v-for="f in filters"
           :key="f.key"
-          class="rounded-full border px-4 py-1.5 text-sm font-medium transition"
+          class="rounded-full px-4 py-1.5 text-sm font-medium transition-all duration-200 hover:scale-105"
           :class="
             activeFilter === f.key
-              ? 'border-transparent text-white'
-              : 'border-[var(--glass-b)] text-[var(--txt-2)] hover:border-[var(--primary)]'
+              ? 'text-white shadow-[var(--glow)]'
+              : 'glass-card text-[var(--txt-2)] hover:text-primary'
           "
           :style="activeFilter === f.key ? { backgroundImage: 'var(--grad)' } : {}"
           @click="activeFilter = f.key"

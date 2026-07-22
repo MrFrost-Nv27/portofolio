@@ -68,8 +68,8 @@ function go(delta: number) {
       <button
         v-for="(img, i) in images"
         :key="img"
-        class="h-11 w-16 shrink-0 overflow-hidden rounded-md border-2 transition"
-        :class="i === activeIndex ? 'border-[var(--primary)]' : 'border-transparent opacity-70'"
+        class="h-11 w-16 shrink-0 overflow-hidden rounded-md border-2 transition hover:opacity-100"
+        :class="i === activeIndex ? 'border-primary' : 'border-transparent opacity-70'"
         @click="activeIndex = i"
       >
         <img :src="img" :alt="`Screenshot ${i + 1}`" loading="lazy" class="h-full w-full object-cover" />

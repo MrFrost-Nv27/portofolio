@@ -59,9 +59,11 @@ export function useParticles(canvasRef: Ref<HTMLCanvasElement | null>, isDark: R
   let rafId = 0
 
   function getColors(): ColorSet {
+    // Indigo / fuchsia / cyan — matches the --primary/--secondary/--tertiary
+    // palette in main.css so the canvas background feels part of one system.
     return isDark.value
-      ? { cols: ['124,111,255', '0,212,255'], aMin: 0.07, aMax: 0.45, line: '124,111,255', lineA: 0.12 }
-      : { cols: ['100,80,220', '0,130,180'], aMin: 0.06, aMax: 0.28, line: '100,80,220', lineA: 0.08 }
+      ? { cols: ['129,140,248', '232,121,249', '34,211,238'], aMin: 0.08, aMax: 0.5, line: '168,140,248', lineA: 0.14 }
+      : { cols: ['99,102,241', '217,70,239', '6,182,212'], aMin: 0.06, aMax: 0.3, line: '129,102,241', lineA: 0.09 }
   }
 
   function resize() {

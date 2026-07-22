@@ -2,32 +2,29 @@ package repository
 
 import (
 	"context"
-	"database/sql"
 	"fmt"
+
+	"gorm.io/gorm"
 
 	"portofolio/internal/models"
 )
 
 type ContactRepo struct {
-	db *sql.DB
+	db *gorm.DB
 }
 
-func NewContactRepo(db *sql.DB) *ContactRepo {
+func NewContactRepo(db *gorm.DB) *ContactRepo {
 	return &ContactRepo{db: db}
 }
 
-func (r *ContactRepo) Create(ctx context.Context, s *models.ContactSubmission) (int64, error) {
-	res, err := r.db.ExecContext(ctx, `
-		INSERT INTO contact_submissions (name, email, service, message, locale, ip_address, user_agent)
-		VALUES (?, ?, ?, ?, ?, ?, ?)
-	`, s.Name, nullable(s.Email), s.Service, s.Message, s.Locale, nullable(s.IPAddress), nullable(s.UserAgent))
-	if err != nil {
+func (r *ContactRepo) Create(ctx context.Context, s *models.ContactSubmission) (uint, error) {
+	if err := r.db.WithContext(ctx).Create(s).Error; err != nil {
 		return 0, fmt.Errorf("create contact submission: %w", err)
 	}
-	return res.LastInsertId()
+	return s.ID, nil
 }
 
-func (r *ContactRepo) List(ctx context.Context, page, pageSize int) ([]models.ContactSubmission, int, error) {
+func (r *ContactRepo) List(ctx context.Context, page, pageSize int) ([]models.ContactSubmission, int64, error) {
 	if page < 1 {
 		page = 1
 	}
@@ -36,50 +33,29 @@ func (r *ContactRepo) List(ctx context.Context, page, pageSize int) ([]models.Co
 	}
 	offset := (page - 1) * pageSize
 
-	var total int
-	if err := r.db.QueryRowContext(ctx, `SELECT COUNT(*) FROM contact_submissions`).Scan(&total); err != nil {
+	var total int64
+	if err := r.db.WithContext(ctx).Model(&models.ContactSubmission{}).Count(&total).Error; err != nil {
 		return nil, 0, fmt.Errorf("count contact submissions: %w", err)
 	}
 
-	rows, err := r.db.QueryContext(ctx, `
-		SELECT id, name, COALESCE(email, ''), service, message, locale,
-		       COALESCE(ip_address, ''), COALESCE(user_agent, ''), created_at
-		FROM contact_submissions ORDER BY created_at DESC LIMIT ? OFFSET ?
-	`, pageSize, offset)
+	var submissions []models.ContactSubmission
+	err := r.db.WithContext(ctx).Order("created_at DESC").Limit(pageSize).Offset(offset).Find(&submissions).Error
 	if err != nil {
 		return nil, 0, fmt.Errorf("list contact submissions: %w", err)
 	}
-	defer rows.Close()
-
-	var submissions []models.ContactSubmission
-	for rows.Next() {
-		var s models.ContactSubmission
-		if err := rows.Scan(&s.ID, &s.Name, &s.Email, &s.Service, &s.Message, &s.Locale,
-			&s.IPAddress, &s.UserAgent, &s.CreatedAt); err != nil {
-			return nil, 0, fmt.Errorf("scan contact submission: %w", err)
-		}
-		submissions = append(submissions, s)
-	}
-	return submissions, total, rows.Err()
+	return submissions, total, nil
 }
 
-func (r *ContactRepo) Get(ctx context.Context, id int64) (*models.ContactSubmission, error) {
-	row := r.db.QueryRowContext(ctx, `
-		SELECT id, name, COALESCE(email, ''), service, message, locale,
-		       COALESCE(ip_address, ''), COALESCE(user_agent, ''), created_at
-		FROM contact_submissions WHERE id = ?
-	`, id)
+func (r *ContactRepo) Get(ctx context.Context, id uint) (*models.ContactSubmission, error) {
 	var s models.ContactSubmission
-	if err := row.Scan(&s.ID, &s.Name, &s.Email, &s.Service, &s.Message, &s.Locale,
-		&s.IPAddress, &s.UserAgent, &s.CreatedAt); err != nil {
+	if err := r.db.WithContext(ctx).First(&s, id).Error; err != nil {
 		return nil, fmt.Errorf("get contact submission: %w", err)
 	}
 	return &s, nil
 }
 
-func (r *ContactRepo) Delete(ctx context.Context, id int64) error {
-	_, err := r.db.ExecContext(ctx, `DELETE FROM contact_submissions WHERE id = ?`, id)
-	if err != nil {
+func (r *ContactRepo) Delete(ctx context.Context, id uint) error {
+	if err := r.db.WithContext(ctx).Delete(&models.ContactSubmission{}, id).Error; err != nil {
 		return fmt.Errorf("delete contact submission: %w", err)
 	}
 	return nil

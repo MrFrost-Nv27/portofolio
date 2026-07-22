@@ -7,6 +7,8 @@ import (
 	"net/http"
 	"strings"
 	"time"
+
+	"github.com/gin-gonic/gin"
 )
 
 type RouterDeps struct {
@@ -17,27 +19,30 @@ type RouterDeps struct {
 	Frontend fs.FS
 }
 
-// NewRouter builds the HTTP mux for the API + uploads static files, and
+// NewRouter builds the Gin engine for the API + uploads static files, and
 // (if provided) mounts the embedded frontend as a SPA catch-all so the
 // whole app ships as one binary. Admin routes (Phase C) are added on top
 // of this router as the project progresses.
-func NewRouter(deps RouterDeps) *http.ServeMux {
-	mux := http.NewServeMux()
+func NewRouter(deps RouterDeps) *gin.Engine {
+	r := gin.New()
+	r.Use(gin.Recovery(), requestLogger())
 
-	mux.HandleFunc("GET /api/profile", deps.Public.GetProfile)
-	mux.HandleFunc("GET /api/skills", deps.Public.ListSkills)
-	mux.HandleFunc("GET /api/projects", deps.Public.ListProjects)
-	mux.HandleFunc("GET /api/projects/{id}", deps.Public.GetProject)
-	mux.HandleFunc("POST /api/contact", deps.Public.SubmitContact)
-
-	uploadsFS := http.FileServer(http.Dir(deps.UploadsDir))
-	mux.Handle("GET /uploads/", http.StripPrefix("/uploads/", uploadsFS))
-
-	if deps.Frontend != nil {
-		mux.Handle("GET /", spaHandler(deps.Frontend))
+	api := r.Group("/api")
+	{
+		api.GET("/profile", deps.Public.GetProfile)
+		api.GET("/skills", deps.Public.ListSkills)
+		api.GET("/projects", deps.Public.ListProjects)
+		api.GET("/projects/:id", deps.Public.GetProject)
+		api.POST("/contact", deps.Public.SubmitContact)
 	}
 
-	return mux
+	r.StaticFS("/uploads", http.Dir(deps.UploadsDir))
+
+	if deps.Frontend != nil {
+		r.NoRoute(spaHandler(deps.Frontend))
+	}
+
+	return r
 }
 
 // spaHandler serves static files from the embedded frontend build, falling
@@ -50,46 +55,34 @@ func NewRouter(deps RouterDeps) *http.ServeMux {
 // any request whose path ends in "/index.html" and issues a redirect to
 // "./" to canonicalize directory URLs, which turns every SPA route into a
 // redirect loop instead of serving the app shell.
-func spaHandler(frontend fs.FS) http.Handler {
+func spaHandler(frontend fs.FS) gin.HandlerFunc {
 	fileServer := http.FileServer(http.FS(frontend))
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		cleanPath := strings.TrimPrefix(r.URL.Path, "/")
+	return func(c *gin.Context) {
+		cleanPath := strings.TrimPrefix(c.Request.URL.Path, "/")
 		if cleanPath == "" {
 			cleanPath = "index.html"
 		}
 		if _, err := fs.Stat(frontend, cleanPath); errors.Is(err, fs.ErrNotExist) {
-			serveIndex(w, frontend)
+			serveIndex(c, frontend)
 			return
 		}
-		fileServer.ServeHTTP(w, r)
-	})
+		fileServer.ServeHTTP(c.Writer, c.Request)
+	}
 }
 
-func serveIndex(w http.ResponseWriter, frontend fs.FS) {
+func serveIndex(c *gin.Context, frontend fs.FS) {
 	data, err := fs.ReadFile(frontend, "index.html")
 	if err != nil {
-		http.Error(w, "index.html not found in embedded frontend build", http.StatusInternalServerError)
+		c.String(http.StatusInternalServerError, "index.html not found in embedded frontend build")
 		return
 	}
-	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	w.Write(data)
+	c.Data(http.StatusOK, "text/html; charset=utf-8", data)
 }
 
-func Logging(next http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+func requestLogger() gin.HandlerFunc {
+	return func(c *gin.Context) {
 		start := time.Now()
-		next.ServeHTTP(w, r)
-		log.Printf("%s %s %s", r.Method, r.URL.Path, time.Since(start))
-	})
-}
-
-func Recover(next http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		defer func() {
-			if err := recover(); err != nil {
-				writeError(w, http.StatusInternalServerError, "internal server error")
-			}
-		}()
-		next.ServeHTTP(w, r)
-	})
+		c.Next()
+		log.Printf("%s %s %s", c.Request.Method, c.Request.URL.Path, time.Since(start))
+	}
 }
