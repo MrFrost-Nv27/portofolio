@@ -32,12 +32,17 @@ func main() {
 	projectsRepo := repository.NewProjectsRepo(gdb)
 	contactRepo := repository.NewContactRepo(gdb)
 
-	publicHandlers := httpapi.NewPublicHandlers(profileRepo, skillsRepo, projectsRepo, contactRepo)
+	controllers := httpapi.Controllers{
+		Profile: httpapi.NewProfileController(profileRepo),
+		Skills:  httpapi.NewSkillsController(skillsRepo),
+		Project: httpapi.NewProjectController(projectsRepo),
+		Contact: httpapi.NewContactController(contactRepo),
+		View:    httpapi.NewViewController(public.Dist()),
+	}
 
-	r := httpapi.NewRouter(httpapi.RouterDeps{
-		Public:     publicHandlers,
-		UploadsDir: cfg.UploadsDir,
-		Frontend:   public.Dist(),
+	r := httpapi.NewRouter(httpapi.RouteDeps{
+		Controllers: controllers,
+		UploadsDir:  cfg.UploadsDir,
 	})
 
 	addr := ":" + cfg.Port
