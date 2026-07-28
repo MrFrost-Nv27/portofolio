@@ -16,12 +16,16 @@ type Controllers struct {
 	Skills  *SkillsController
 	Project *ProjectController
 	Contact *ContactController
+	Auth    *AuthController
 	View    *ViewController // nil if the frontend isn't embedded (e.g. some tests)
 }
 
 type RouteDeps struct {
 	Controllers Controllers
 	UploadsDir  string
+	// RequireAdmin guards every /api/admin/* route except login. Nil is
+	// only valid in tests that don't exercise the admin surface.
+	RequireAdmin gin.HandlerFunc
 }
 
 // NewRouter builds the Gin engine and registers every route. The split
@@ -38,7 +42,7 @@ func NewRouter(deps RouteDeps) *gin.Engine {
 	r := gin.New()
 	r.Use(gin.Recovery(), requestLogger())
 
-	registerAPIRoutes(r, deps.Controllers)
+	registerAPIRoutes(r, deps.Controllers, deps.RequireAdmin)
 
 	// Admin-uploaded content (profile photo, CV, project screenshots) is
 	// served directly, not routed through a controller — the same role
@@ -52,7 +56,7 @@ func NewRouter(deps RouteDeps) *gin.Engine {
 
 // registerAPIRoutes is the routes/api.php equivalent: JSON resource
 // endpoints, one line per route just like Laravel's Route::get/post.
-func registerAPIRoutes(r *gin.Engine, ctl Controllers) {
+func registerAPIRoutes(r *gin.Engine, ctl Controllers, requireAdmin gin.HandlerFunc) {
 	api := r.Group("/api")
 	{
 		api.GET("/profile", ctl.Profile.Show)
@@ -60,6 +64,16 @@ func registerAPIRoutes(r *gin.Engine, ctl Controllers) {
 		api.GET("/projects", ctl.Project.Index)
 		api.GET("/projects/:id", ctl.Project.Show)
 		api.POST("/contact", ctl.Contact.Store)
+
+		admin := api.Group("/admin")
+		{
+			admin.POST("/login", ctl.Auth.Login)
+			admin.POST("/logout", ctl.Auth.Logout)
+			admin.GET("/me", requireAdmin, ctl.Auth.Me)
+			// Admin CRUD routes (projects/skills/profile management,
+			// contact submissions) are added here as the admin panel
+			// is built — each behind requireAdmin, same pattern as /me.
+		}
 	}
 }
 
